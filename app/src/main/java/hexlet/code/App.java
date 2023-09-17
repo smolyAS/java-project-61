@@ -1,7 +1,20 @@
 package hexlet.code;
 
+import java.util.Scanner;
+
 public class App {
     public static void main(String[] args) {
-        Cli.newGame();
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Please enter the game number and press Enter.\n" +
+                "1 - Greet\n" +
+                "0 - Exit");
+        System.out.print("Your choice: ");
+        int item = scanner.nextInt();
+        if (item == 1) {
+            Cli.newGame();
+        } else {
+            System.out.print("Exit");
+        }
     }
 }
