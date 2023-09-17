@@ -6,9 +6,9 @@ public class App {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Please enter the game number and press Enter.\n" +
-                "1 - Greet\n" +
-                "0 - Exit");
+        System.out.println("Please enter the game number and press Enter.");
+        System.out.println("1 - Greet");
+        System.out.println("0 - Exit");
         System.out.print("Your choice: ");
         int item = scanner.nextInt();
         if (item == 1) {
