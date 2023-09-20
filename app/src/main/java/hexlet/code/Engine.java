@@ -2,17 +2,35 @@ package hexlet.code;
 
 import java.util.Scanner;
 
-public class Even {
-    public static void gameEven() {
+public class Engine {
+    public static void gameGreet() {
         Scanner scanner = new Scanner(System.in);
 
-        Engine.gameGreet();
+        System.out.println("Welcome to the Brain Games!");
+        System.out.print("May I have your name? ");
+//        String userName = scanner.next();
+//        System.out.println("Hello, " + userName + "!");
+    }
+/*
 
-        String userName = scanner.next();
-        System.out.println("Hello, " + userName + "!");
+    public static void gameWin() {
+        System.out.println("Correct!");
+    }
 
-        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
+    public static void gameOver() {
+        System.out.println("'yes' is wrong answer ;(. Correct answer was 'no'.");
+        System.out.println("Let's try again, " + userName + "!");
+    }
 
+    public static void gameError() {
+        System.out.println("'" + answerGamer + "'" + " is wrong answer ;(. Correct answer was 'yes' or 'no'.");
+        System.out.println("Let's try again, " + userName + "!");
+    }
+
+*/
+
+
+    /*public static void gameLocic() {
         var win = 0;
         var defeat = 0;
 
@@ -56,5 +74,5 @@ public class Even {
         if (win == 3) {
             System.out.println("Congratulations, " + userName + "!");
         }
-    }
+    }*/
 }
