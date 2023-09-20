@@ -16,7 +16,7 @@ public class Even {
         var win = 0;
         var defeat = 0;
 
-        for (var i = 1; win < 3; i++) {
+        while (win < 3) {
 
             if (defeat > 0) {
                 break;
