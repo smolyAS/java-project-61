@@ -13,34 +13,48 @@ public class Even {
 
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
 
-        for (var i = 1; i <= 3; i++) {
+        var win = 0;
+        var defeat = 0;
 
-            int randomNum = (int) (Math.random() * 100) + 1;
-            System.out.println("Question: " + randomNum);
+        for (var i = 1; win < 3; i++) {
 
-            System.out.print("Your answer: ");
-            String answerGamer = scanner.next();
-
-            if (answerGamer.equals("yes")) {
-                if (randomNum % 2 == 0) {
-                    System.out.println("Correct!");
-                } else {
-                    System.out.println("'yes' is wrong answer ;(. Correct answer was 'no'.");
-                    System.out.println("Let's try again, " + userName + "!");
-                }
-            } else if (answerGamer.equals("no")) {
-                if (randomNum % 2 != 0) {
-                    System.out.println("Correct!");
-                } else {
-                    System.out.println("'no' is wrong answer ;(. Correct answer was 'yes'.");
-                    System.out.println("Let's try again, " + userName + "!");
-                }
+            if (defeat > 0) {
+                break;
             } else {
-                System.out.println("'" + answerGamer + "'" + " is wrong answer ;(. Correct answer was 'yes' or 'no'.");
-                System.out.println("Let's try again, " + userName + "!");
+
+                int randomNum = (int) (Math.random() * 100) + 1;
+                System.out.println("Question: " + randomNum);
+
+                System.out.print("Your answer: ");
+                String answerGamer = scanner.next();
+
+                if (answerGamer.equals("yes")) {
+                    if (randomNum % 2 == 0) {
+                        System.out.println("Correct!");
+                        win++;
+                    } else {
+                        System.out.println("'yes' is wrong answer ;(. Correct answer was 'no'.");
+                        System.out.println("Let's try again, " + userName + "!");
+                        defeat++;
+                    }
+                } else if (answerGamer.equals("no")) {
+                    if (randomNum % 2 != 0) {
+                        System.out.println("Correct!");
+                        win++;
+                    } else {
+                        System.out.println("'no' is wrong answer ;(. Correct answer was 'yes'.");
+                        System.out.println("Let's try again, " + userName + "!");
+                        defeat++;
+                    }
+                } else {
+                    System.out.println("'" + answerGamer + "'" + " is wrong answer ;(. Correct answer was 'yes' or 'no'.");
+                    System.out.println("Let's try again, " + userName + "!");
+                    defeat++;
+                }
             }
         }
-
-        System.out.println("Congratulations, " + userName + "!");
+        if (win == 3) {
+            System.out.println("Congratulations, " + userName + "!");
+        }
     }
 }

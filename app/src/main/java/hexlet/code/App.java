@@ -17,7 +17,7 @@ public class App {
             Cli.newGame();
         } else if (item == 2) {
             Even.gameEven();
-        } else {
+        } else if (item == 0) {
             System.out.print("Exit");
         }
     }
