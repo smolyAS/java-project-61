@@ -3,18 +3,16 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Even {
+    public static String answer;
     public static void gameEven() {
         Scanner scanner = new Scanner(System.in);
 
         Engine.gameGreet();
-
-        String userName = scanner.next();
-        System.out.println("Hello, " + userName + "!");
-
+        Engine.nameGamer();
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
 
-        var win = 0;
-        var defeat = 0;
+        int win = 0;
+        int defeat = 0;
 
         while (win < 3) {
 
@@ -22,39 +20,37 @@ public class Even {
                 break;
             } else {
 
-                int randomNum = (int) (Math.random() * 100) + 1;
+                int randomNum = Engine.RandomNumber();
                 System.out.println("Question: " + randomNum);
 
                 System.out.print("Your answer: ");
                 String answerGamer = scanner.next();
+                answer = answerGamer;
 
                 if (answerGamer.equals("yes")) {
                     if (randomNum % 2 == 0) {
-                        System.out.println("Correct!");
+                        Engine.gameWin();
                         win++;
                     } else {
-                        System.out.println("'yes' is wrong answer ;(. Correct answer was 'no'.");
-                        System.out.println("Let's try again, " + userName + "!");
+                        Engine.gameOverAnswerYes();
                         defeat++;
                     }
                 } else if (answerGamer.equals("no")) {
                     if (randomNum % 2 != 0) {
-                        System.out.println("Correct!");
+                        Engine.gameWin();
                         win++;
                     } else {
-                        System.out.println("'no' is wrong answer ;(. Correct answer was 'yes'.");
-                        System.out.println("Let's try again, " + userName + "!");
+                        Engine.gameOverAnswerNo();
                         defeat++;
                     }
                 } else {
-                    System.out.println("'" + answerGamer + "'" + " is wrong answer ;(. Correct answer was 'yes' or 'no'.");
-                    System.out.println("Let's try again, " + userName + "!");
+                    Engine.gameOverError();
                     defeat++;
                 }
             }
         }
         if (win == 3) {
-            System.out.println("Congratulations, " + userName + "!");
+            Engine.gameOverCongratulation();
         }
     }
 }

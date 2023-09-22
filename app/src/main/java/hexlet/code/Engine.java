@@ -2,77 +2,60 @@ package hexlet.code;
 
 import java.util.Scanner;
 
-public class Engine {
-    public static void gameGreet() {
-        Scanner scanner = new Scanner(System.in);
+import static hexlet.code.Calc.answerCalc;
+import static hexlet.code.Even.answer;
 
+public class Engine {
+    public static String gamer = "";
+
+    public static void gameGreet() {
         System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
-//        String userName = scanner.next();
-//        System.out.println("Hello, " + userName + "!");
     }
-/*
+
+    public static void nameGamer() {
+        Scanner scanner = new Scanner(System.in);
+        String userName = scanner.next();
+        System.out.println("Hello, " + userName + "!");
+        gamer = userName;
+    }
 
     public static void gameWin() {
+
         System.out.println("Correct!");
     }
 
-    public static void gameOver() {
+    public static void gameOverCongratulation() {
+        System.out.println("Congratulations, " + gamer + "!");
+    }
+
+    public static void gameOverAnswerNo() {
+        System.out.println("'no' is wrong answer ;(. Correct answer was 'yes'.");
+        System.out.println("Let's try again, " + gamer + "!");
+    }
+
+    public static void gameOverAnswerYes() {
         System.out.println("'yes' is wrong answer ;(. Correct answer was 'no'.");
-        System.out.println("Let's try again, " + userName + "!");
+        System.out.println("Let's try again, " + gamer + "!");
     }
 
-    public static void gameError() {
-        System.out.println("'" + answerGamer + "'" + " is wrong answer ;(. Correct answer was 'yes' or 'no'.");
-        System.out.println("Let's try again, " + userName + "!");
+    public static void gameOverError() {
+        System.out.println("'" + answer + "'" + " is wrong answer ;(. Correct answer was 'yes' or 'no'.");
+        System.out.println("Let's try again, " + gamer + "!");
     }
 
-*/
+    public static void gameOverErrorCalc() {
+        System.out.println("'" + answerCalc + "'" + " is wrong answer ;(.");
+        System.out.println("Let's try again, " + gamer + "!");
+    }
 
+    public static int RandomNumber() {
+        return (int) (Math.random() * 100);
+    }
 
-    /*public static void gameLocic() {
-        var win = 0;
-        var defeat = 0;
-
-        while (win < 3) {
-
-            if (defeat > 0) {
-                break;
-            } else {
-
-                int randomNum = (int) (Math.random() * 100) + 1;
-                System.out.println("Question: " + randomNum);
-
-                System.out.print("Your answer: ");
-                String answerGamer = scanner.next();
-
-                if (answerGamer.equals("yes")) {
-                    if (randomNum % 2 == 0) {
-                        System.out.println("Correct!");
-                        win++;
-                    } else {
-                        System.out.println("'yes' is wrong answer ;(. Correct answer was 'no'.");
-                        System.out.println("Let's try again, " + userName + "!");
-                        defeat++;
-                    }
-                } else if (answerGamer.equals("no")) {
-                    if (randomNum % 2 != 0) {
-                        System.out.println("Correct!");
-                        win++;
-                    } else {
-                        System.out.println("'no' is wrong answer ;(. Correct answer was 'yes'.");
-                        System.out.println("Let's try again, " + userName + "!");
-                        defeat++;
-                    }
-                } else {
-                    System.out.println("'" + answerGamer + "'" + " is wrong answer ;(. Correct answer was 'yes' or 'no'.");
-                    System.out.println("Let's try again, " + userName + "!");
-                    defeat++;
-                }
-            }
-        }
-        if (win == 3) {
-            System.out.println("Congratulations, " + userName + "!");
-        }
-    }*/
+    public static char RandomOperator() {
+        char[] operators = {'+', '-', '*'};
+        int randomIndex = (int) (Math.random() * operators.length);
+        return operators[randomIndex];
+    }
 }
