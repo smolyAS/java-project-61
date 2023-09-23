@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import static hexlet.code.Calc.answerCalc;
 import static hexlet.code.Even.answer;
+import static hexlet.code.Calc.expectedResult;
 
 public class Engine {
     public static String gamer = "";
@@ -45,7 +46,7 @@ public class Engine {
     }
 
     public static void gameOverErrorCalc() {
-        System.out.println("'" + answerCalc + "'" + " is wrong answer ;(.");
+        System.out.println("'" + answerCalc + "'" + " is wrong answer ;(. Correct answer was " + "'" + expectedResult + "'.");
         System.out.println("Let's try again, " + gamer + "!");
     }
 
