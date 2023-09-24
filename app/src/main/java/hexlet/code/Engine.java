@@ -1,10 +1,11 @@
 package hexlet.code;
 
 import java.util.Scanner;
-
-import static hexlet.code.Calc.answerCalc;
 import static hexlet.code.Even.answer;
+import static hexlet.code.Calc.answerCalc;
 import static hexlet.code.Calc.expectedResult;
+import static hexlet.code.GCD.answerGCD;
+import static hexlet.code.GCD.expectedResultGCD;
 
 public class Engine {
     public static String gamer = "";
@@ -58,5 +59,10 @@ public class Engine {
         char[] operators = {'+', '-', '*'};
         int randomIndex = (int) (Math.random() * operators.length);
         return operators[randomIndex];
+    }
+
+    public static void gameOverErrorGCD() {
+        System.out.println("'" + answerGCD + "'" + " is wrong answer ;(. Correct answer was " + "'" + expectedResultGCD + "'.");
+        System.out.println("Let's try again, " + gamer + "!");
     }
 }
