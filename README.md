@@ -3,7 +3,8 @@
    https://asciinema.org/connect/a620848f-f76e-46d7-afca-8c8e53aaf4c4
 
 2. "Калькулятор":
-   https://asciinema.org/a/bc8FFjqo3mENFO4mp1KT6UvKQ
+   https://asciinema.org/a/kZLtxA0TfEoEk044gi197jRuq
+
 
 
 
