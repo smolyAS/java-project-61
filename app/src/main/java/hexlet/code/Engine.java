@@ -6,6 +6,8 @@ import static hexlet.code.Calc.answerCalc;
 import static hexlet.code.Calc.expectedResult;
 import static hexlet.code.GCD.answerGCD;
 import static hexlet.code.GCD.expectedResultGCD;
+import static hexlet.code.Progres.answerProgression;
+import static hexlet.code.Progres.expectedResultProgression;
 
 public class Engine {
     public static String gamer = "";
@@ -63,6 +65,11 @@ public class Engine {
 
     public static void gameOverErrorGCD() {
         System.out.println("'" + answerGCD + "'" + " is wrong answer ;(. Correct answer was " + "'" + expectedResultGCD + "'.");
+        System.out.println("Let's try again, " + gamer + "!");
+    }
+
+    public static void gameOverErrorProgression() {
+        System.out.println("'" + answerProgression + "'" + " is wrong answer ;(. Correct answer was " + "'" + expectedResultProgression + "'.");
         System.out.println("Let's try again, " + gamer + "!");
     }
 }
