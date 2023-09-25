@@ -1,9 +1,12 @@
 ИГРЫ РАЗУМА  
-1. "Проверка на чётность":
+1. "Проверка на чётность":  
    https://asciinema.org/connect/a620848f-f76e-46d7-afca-8c8e53aaf4c4
 
-2. "Калькулятор":
+2. "Калькулятор":  
    https://asciinema.org/a/kZLtxA0TfEoEk044gi197jRuq
+
+3. "НОД":  
+   https://asciinema.org/a/MW6tWyHqXmDyFYp82OcYnKusC
 
 
 
