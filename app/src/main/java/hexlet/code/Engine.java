@@ -6,8 +6,8 @@ import static hexlet.code.Calc.answerCalc;
 import static hexlet.code.Calc.expectedResult;
 import static hexlet.code.GCD.answerGCD;
 import static hexlet.code.GCD.expectedResultGCD;
-import static hexlet.code.Progres.answerProgression;
-import static hexlet.code.Progres.expectedResultProgression;
+import static hexlet.code.Progression.answerProgression;
+import static hexlet.code.Progression.expectedResultProgression;
 
 public class Engine {
     public static String gamer = "";

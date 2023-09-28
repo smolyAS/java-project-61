@@ -32,7 +32,7 @@ public class App {
                 GCD.gameGCD();
                 break;
             case 5:
-                Progres.gameProgression();
+                Progression.gameProgression();
                 break;
             case 0:
                 System.out.print("Exit");
