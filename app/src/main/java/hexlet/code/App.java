@@ -19,27 +19,12 @@ public class App {
         int item = scanner.nextInt();
 
         switch (item) {
-            case 1:
-                Cli.newGame();
-                break;
-            case 2:
-                Even.gameEven();
-                break;
-            case 3:
-                Calc.gameCalc();
-                break;
-            case 4:
-                GCD.gameGCD();
-                break;
-            case 5:
-                Progression.gameProgression();
-                break;
-            case 0:
-                System.out.print("Exit");
-                break;
-            default:
-                System.out.print("Exit");
-                break;
+            case 1 -> Cli.newGame();
+            case 2 -> Even.gameEven();
+            case 3 -> Calc.gameCalc();
+            case 4 -> GCD.gameGCD();
+            case 5 -> Progression.gameProgression();
+            default -> System.out.print("Exit");
         }
     }
 }

@@ -37,8 +37,7 @@ public class GCD {
                 System.out.println("Question: " + number1 + " " + number2);
                 System.out.print("Your answer: ");
 
-                int answerGamer = scanner.nextInt();
-                answerGCD = answerGamer;
+                answerGCD = scanner.nextInt();
                 expectedResultGCD = findGCD(number1, number2);
 
                 if (answerGCD == expectedResultGCD) {

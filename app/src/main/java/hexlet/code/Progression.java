@@ -45,8 +45,7 @@ public class Progression {
                 System.out.println();
 
                 System.out.print("Your answer: ");
-                int answerGamer = scanner.nextInt();
-                answerProgression = answerGamer;
+                answerProgression = scanner.nextInt();
                 expectedResultProgression = hiddenElement;
 
                 if (answerProgression == expectedResultProgression) {
