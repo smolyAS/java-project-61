@@ -8,6 +8,9 @@
 3. "НОД":  
    https://asciinema.org/a/MW6tWyHqXmDyFYp82OcYnKusC
 
+3. "Арифметическая прогрессия":  
+   https://asciinema.org/a/uwiny3Ixmju4H1xEkPNoEMEdr
+
 
 
 
