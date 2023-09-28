@@ -20,7 +20,7 @@ public class Even {
                 break;
             } else {
 
-                int randomNum = Engine.RandomNumber();
+                int randomNum = Engine.randomNumber();
                 System.out.println("Question: " + randomNum);
 
                 System.out.print("Your answer: ");

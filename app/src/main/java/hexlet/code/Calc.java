@@ -41,9 +41,9 @@ public class Calc {
 
             } else {
 
-                int number1 = Engine.RandomNumber();
-                int number2 = Engine.RandomNumber();
-                char operator = Engine.RandomOperator();
+                int number1 = Engine.randomNumber();
+                int number2 = Engine.randomNumber();
+                char operator = Engine.randomOperator();
 
                 expectedResult = calculateExpression(number1, number2, operator);
 

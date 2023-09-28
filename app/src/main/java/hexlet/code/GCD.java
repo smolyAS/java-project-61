@@ -31,8 +31,8 @@ public class GCD {
 
             } else {
 
-                int number1 = Engine.RandomNumber();
-                int number2 = Engine.RandomNumber();
+                int number1 = Engine.randomNumber();
+                int number2 = Engine.randomOperator();
 
                 System.out.println("Question: " + number1 + " " + number2);
                 System.out.print("Your answer: ");
