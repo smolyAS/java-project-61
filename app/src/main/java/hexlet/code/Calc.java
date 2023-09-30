@@ -8,18 +8,10 @@ public class Calc {
     public static int calculateExpression(int number1, int number2, char operator) {
         int result;
         switch (operator) {
-            case '+':
-                result = number1 + number2;
-                break;
-            case '-':
-                result = number1 - number2;
-                break;
-            case '*':
-                result = number1 * number2;
-                break;
-            default:
-                result = 0;
-                break;
+            case '+' -> result = number1 + number2;
+            case '-' -> result = number1 - number2;
+            case '*' -> result = number1 * number2;
+            default -> result = 0;
         }
         return result;
     }
@@ -50,8 +42,7 @@ public class Calc {
                 System.out.println("Question: " + number1 + " " + operator + " " + number2);
                 System.out.print("Your answer: ");
 
-                int answerGamer = scanner.nextInt();
-                answerCalc = answerGamer;
+                answerCalc = scanner.nextInt();
 
                 if (answerCalc == expectedResult) {
                     Engine.gameWin();
