@@ -8,10 +8,18 @@ public class Calc {
     public static int calculateExpression(int number1, int number2, char operator) {
         int result;
         switch (operator) {
-            case '+' -> result = number1 + number2;
-            case '-' -> result = number1 - number2;
-            case '*' -> result = number1 * number2;
-            default -> result = 0;
+            case '+':
+                result = number1 + number2;
+                break;
+            case '-':
+                result = number1 - number2;
+                break;
+            case '*':
+                result = number1 * number2;
+                break;
+            default:
+                result = 0;
+                break;
         }
         return result;
     }
