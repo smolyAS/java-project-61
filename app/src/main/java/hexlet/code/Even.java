@@ -3,7 +3,7 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Even {
-    public static String answer;
+    public static String answerEven;
     public static void gameEven() {
         Scanner scanner = new Scanner(System.in);
 
@@ -25,7 +25,7 @@ public class Even {
 
                 System.out.print("Your answer: ");
                 String answerGamer = scanner.next();
-                answer = answerGamer;
+                answerEven = answerGamer;
 
                 if (answerGamer.equals("yes")) {
                     if (randomNum % 2 == 0) {
@@ -44,7 +44,7 @@ public class Even {
                         defeat++;
                     }
                 } else {
-                    Engine.gameOverError();
+                    Engine.gameOverErrorEven();
                     defeat++;
                 }
             }

@@ -1,7 +1,8 @@
 package hexlet.code;
 
 import java.util.Scanner;
-import static hexlet.code.Even.answer;
+import static hexlet.code.Even.answerEven;
+import static hexlet.code.Prime.answerPrime;
 import static hexlet.code.Calc.answerCalc;
 import static hexlet.code.Calc.expectedResult;
 import static hexlet.code.GCD.answerGCD;
@@ -42,8 +43,13 @@ public class Engine {
         System.out.println("Let's try again, " + gamer + "!");
     }
 
-    public static void gameOverError() {
-        System.out.println("'" + answer + "'" + " is wrong answer ;(. Correct answer was 'yes' or 'no'.");
+    public static void gameOverErrorEven() {
+        System.out.println("'" + answerEven + "'" + " is wrong answer ;(. Correct answer was 'yes' or 'no'.");
+        System.out.println("Let's try again, " + gamer + "!");
+    }
+
+    public static void gameOverErrorPrime() {
+        System.out.println("'" + answerPrime + "'" + " is wrong answer ;(. Correct answer was 'yes' or 'no'.");
         System.out.println("Let's try again, " + gamer + "!");
     }
 

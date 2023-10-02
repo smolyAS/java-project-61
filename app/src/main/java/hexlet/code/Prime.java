@@ -3,6 +3,7 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Prime {
+    public static String answerPrime;
 
     public static void gamePrime() {
         Scanner scanner = new Scanner(System.in);
@@ -24,6 +25,7 @@ public class Prime {
                 System.out.println("Question: " + randomNum);
                 System.out.print("Your answer: ");
                 String answerGamer = scanner.next();
+                answerPrime = answerGamer;
 
                 if (randomNum > 1) {
                     for (int i = 2; i <= Math.sqrt(randomNum); i++) {
@@ -53,7 +55,7 @@ public class Prime {
                         defeat++;
                     }
                 } else {
-                    Engine.gameOverError();
+                    Engine.gameOverErrorPrime();
                     defeat++;
                 }
             }
