@@ -1,14 +1,14 @@
 package hexlet.code;
 
 import java.util.Scanner;
-import static hexlet.code.Even.answerEven;
-import static hexlet.code.Prime.answerPrime;
-import static hexlet.code.Calc.answerCalc;
-import static hexlet.code.Calc.expectedResult;
-import static hexlet.code.GCD.answerGCD;
-import static hexlet.code.GCD.expectedResultGCD;
-import static hexlet.code.Progression.answerProgression;
-import static hexlet.code.Progression.expectedResultProgression;
+import static hexlet.code.games.Even.answerEven;
+import static hexlet.code.games.Prime.answerPrime;
+import static hexlet.code.games.Calc.answerCalc;
+import static hexlet.code.games.Calc.expectedResult;
+import static hexlet.code.games.GCD.answerGCD;
+import static hexlet.code.games.GCD.expectedResultGCD;
+import static hexlet.code.games.Progression.answerProgression;
+import static hexlet.code.games.Progression.expectedResultProgression;
 
 public class Engine {
     public static String gamer = "";
