@@ -8,8 +8,11 @@
 3. "НОД":  
    https://asciinema.org/a/MW6tWyHqXmDyFYp82OcYnKusC
 
-3. "Арифметическая прогрессия":  
+4. "Арифметическая прогрессия":  
    https://asciinema.org/a/uwiny3Ixmju4H1xEkPNoEMEdr
+
+5. "Простое ли число?":  
+   https://asciinema.org/a/x2LqxSK1jq0bcColcxVLPnA66
 
 
 
