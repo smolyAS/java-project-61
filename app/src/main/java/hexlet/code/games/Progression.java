@@ -1,13 +1,22 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-
 import java.util.Random;
 import java.util.Scanner;
 
 public class Progression {
-    public static int answerProgression;
-    public static int expectedResultProgression;
+    private static int answerProgression;
+
+    public static int getAnswerProgression() {
+        return answerProgression;
+    }
+
+    private static int expectedResultProgression;
+
+    public static int getExpectedResultProgression() {
+        return expectedResultProgression;
+    }
+
     public static void gameProgression() {
         Random random = new Random();
         Scanner scanner = new Scanner(System.in);
@@ -19,15 +28,15 @@ public class Progression {
         int win = 0;
         int defeat = 0;
 
-        while (win < 3) {
+        while (win < Engine.MAX_WIN) {
 
             if (defeat > 0) {
                 break;
             } else {
-                int length = random.nextInt(6) + 5;
+                int length = random.nextInt(Engine.FIRST_NUM_PROGRESSION) + Engine.MIN_NUMBER_OF_INTEGER;
                 int hiddenIndex = random.nextInt(length);
-                int firstElement = random.nextInt(100);
-                int step = random.nextInt(10) + 1;
+                int firstElement = random.nextInt(Engine.MAX_RANDOM);
+                int step = random.nextInt(Engine.MAX_STEP) + Engine.COEFF_STEP;
 
                 int[] progression = new int[length];
                 for (int j = 0; j < length; j++) {
@@ -58,7 +67,7 @@ public class Progression {
                     defeat++;
                 }
             }
-            if (win == 3) {
+            if (win == Engine.MAX_WIN) {
                 Engine.gameOverCongratulation();
             }
         }

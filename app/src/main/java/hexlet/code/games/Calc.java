@@ -5,23 +5,28 @@ import hexlet.code.Engine;
 import java.util.Scanner;
 
 public class Calc {
-    public static int answerCalc;
-    public static int expectedResult;
+
+    private static int answerCalc;
+    public static int getAnswerCalc() {
+        return answerCalc;
+    }
+
+    private static int expectedResult;
+
+    public static int getExpectedResult() {
+        return expectedResult;
+    }
+
     public static int calculateExpression(int number1, int number2, char operator) {
         int result;
-        switch (operator) {
-            case '+':
-                result = number1 + number2;
-                break;
-            case '-':
-                result = number1 - number2;
-                break;
-            case '*':
-                result = number1 * number2;
-                break;
-            default:
-                result = 0;
-                break;
+        if (operator == '+') {
+            result = number1 + number2;
+        } else if (operator == '-') {
+            result = number1 - number2;
+        } else if (operator == '*') {
+            result = number1 * number2;
+        } else {
+            result = 0;
         }
         return result;
     }
@@ -36,7 +41,7 @@ public class Calc {
         int win = 0;
         int defeat = 0;
 
-        while (win < 3) {
+        while (win < Engine.MAX_WIN) {
 
             if (defeat > 0) {
                 break;
@@ -63,7 +68,7 @@ public class Calc {
                 }
             }
 
-            if (win == 3) {
+            if (win == Engine.MAX_WIN) {
                 Engine.gameOverCongratulation();
             }
         }

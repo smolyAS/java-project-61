@@ -5,7 +5,13 @@ import hexlet.code.Engine;
 import java.util.Scanner;
 
 public class Even {
-    public static String answerEven;
+
+    private static String answerEven;
+
+    public static String getAnswerEven() {
+        return answerEven;
+    }
+
     public static void gameEven() {
         Scanner scanner = new Scanner(System.in);
 
@@ -16,7 +22,7 @@ public class Even {
         int win = 0;
         int defeat = 0;
 
-        while (win < 3) {
+        while (win < Engine.MAX_WIN) {
 
             if (defeat > 0) {
                 break;
@@ -51,7 +57,7 @@ public class Even {
                 }
             }
         }
-        if (win == 3) {
+        if (win == Engine.MAX_WIN) {
             Engine.gameOverCongratulation();
         }
     }

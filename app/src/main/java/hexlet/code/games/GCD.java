@@ -5,8 +5,18 @@ import hexlet.code.Engine;
 import java.util.Scanner;
 
 public class GCD {
-    public static int answerGCD;
-    public static int expectedResultGCD;
+
+    private static int answerGCD;
+
+    public static int getAnswerGCD() {
+        return answerGCD;
+    }
+
+    private static int expectedResultGCD;
+
+    public static int getExpectedResultGCD() {
+        return expectedResultGCD;
+    }
 
     public static int findGCD(int number1, int number2) {
         while (number2 != 0) {
@@ -26,7 +36,7 @@ public class GCD {
         int win = 0;
         int defeat = 0;
 
-        while (win < 3) {
+        while (win < Engine.MAX_WIN) {
 
             if (defeat > 0) {
                 break;
@@ -51,7 +61,7 @@ public class GCD {
                 }
             }
 
-            if (win == 3) {
+            if (win == Engine.MAX_WIN) {
                 Engine.gameOverCongratulation();
             }
         }

@@ -23,15 +23,15 @@ public class App {
         System.out.println("0 - Exit");
         System.out.print("Your choice: ");
 
-        int item = scanner.nextInt();
+        String item = scanner.nextLine();
 
         switch (item) {
-            case 1 -> Cli.newGame();
-            case 2 -> Even.gameEven();
-            case 3 -> Calc.gameCalc();
-            case 4 -> GCD.gameGCD();
-            case 5 -> Progression.gameProgression();
-            case 6 -> Prime.gamePrime();
+            case "1" -> Cli.newGame();
+            case "2" -> Even.gameEven();
+            case "3" -> Calc.gameCalc();
+            case "4" -> GCD.gameGCD();
+            case "5" -> Progression.gameProgression();
+            case "6" -> Prime.gamePrime();
             default -> System.out.print("Exit");
         }
     }

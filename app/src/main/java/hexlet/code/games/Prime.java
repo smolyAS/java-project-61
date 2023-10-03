@@ -5,7 +5,12 @@ import hexlet.code.Engine;
 import java.util.Scanner;
 
 public class Prime {
-    public static String answerPrime;
+
+    private static String answerPrime;
+
+    public static String getAnswerPrime() {
+        return answerPrime;
+    }
 
     public static void gamePrime() {
         Scanner scanner = new Scanner(System.in);
@@ -17,7 +22,7 @@ public class Prime {
         int win = 0;
         int defeat = 0;
 
-        while (win < 3) {
+        while (win < Engine.MAX_WIN) {
 
             if (defeat > 0) {
                 break;
@@ -62,7 +67,7 @@ public class Prime {
                 }
             }
         }
-        if (win == 3) {
+        if (win == Engine.MAX_WIN) {
             Engine.gameOverCongratulation();
         }
     }

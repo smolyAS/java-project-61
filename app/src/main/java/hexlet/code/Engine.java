@@ -1,17 +1,23 @@
 package hexlet.code;
 
 import java.util.Scanner;
-import static hexlet.code.games.Even.answerEven;
-import static hexlet.code.games.Prime.answerPrime;
-import static hexlet.code.games.Calc.answerCalc;
-import static hexlet.code.games.Calc.expectedResult;
-import static hexlet.code.games.GCD.answerGCD;
-import static hexlet.code.games.GCD.expectedResultGCD;
-import static hexlet.code.games.Progression.answerProgression;
-import static hexlet.code.games.Progression.expectedResultProgression;
+
+import hexlet.code.games.Calc;
+import hexlet.code.games.Even;
+import hexlet.code.games.GCD;
+import hexlet.code.games.Prime;
+import hexlet.code.games.Progression;
 
 public class Engine {
-    public static String gamer = "";
+
+    public static final int MAX_WIN = 3;
+    public static final int FIRST_NUM_PROGRESSION = 6;
+    public static final int MIN_NUMBER_OF_INTEGER = 5;
+    public static final int MAX_RANDOM = 100;
+    public static final int MAX_STEP = 10;
+    public static final int COEFF_STEP = 1;
+
+    private static String gamer = "";
 
     public static void gameGreet() {
         System.out.println("Welcome to the Brain Games!");
@@ -44,23 +50,25 @@ public class Engine {
     }
 
     public static void gameOverErrorEven() {
-        System.out.println("'" + answerEven + "'" + " is wrong answer ;(. Correct answer was 'yes' or 'no'.");
+        System.out.println("'" + Even.getAnswerEven() + "'" + " is wrong answer ;(. ");
+        System.out.print("Correct answer was 'yes' or 'no'.");
         System.out.println("Let's try again, " + gamer + "!");
     }
 
     public static void gameOverErrorPrime() {
-        System.out.println("'" + answerPrime + "'" + " is wrong answer ;(. Correct answer was 'yes' or 'no'.");
+        System.out.println("'" + Prime.getAnswerPrime() + "'" + " is wrong answer ;(. ");
+        System.out.print("Correct answer was 'yes' or 'no'.");
         System.out.println("Let's try again, " + gamer + "!");
     }
 
     public static void gameOverErrorCalc() {
-        System.out.println("'" + answerCalc + "'" + " is wrong answer ;(. ");
-        System.out.print("Correct answer was " + "'" + expectedResult + "'.");
+        System.out.println("'" + Calc.getAnswerCalc() + "'" + " is wrong answer ;(. ");
+        System.out.print("Correct answer was " + "'" + Calc.getExpectedResult() + "'.");
         System.out.println("Let's try again, " + gamer + "!");
     }
 
     public static int randomNumber() {
-        return (int) (Math.random() * 100);
+        return (int) (Math.random() * MAX_RANDOM);
     }
 
     public static char randomOperator() {
@@ -70,14 +78,14 @@ public class Engine {
     }
 
     public static void gameOverErrorGCD() {
-        System.out.println("'" + answerGCD + "'" + " is wrong answer ;(. ");
-        System.out.print("Correct answer was " + "'" + expectedResultGCD + "'.");
+        System.out.println("'" + GCD.getAnswerGCD() + "'" + " is wrong answer ;(. ");
+        System.out.print("Correct answer was " + "'" + GCD.getExpectedResultGCD() + "'.");
         System.out.println("Let's try again, " + gamer + "!");
     }
 
     public static void gameOverErrorProgression() {
-        System.out.println("'" + answerProgression + "'" + " is wrong answer ;(.");
-        System.out.print("Correct answer was " + "'" + expectedResultProgression + "'.");
+        System.out.println("'" + Progression.getAnswerProgression() + "'" + " is wrong answer ;(.");
+        System.out.print("Correct answer was " + "'" + Progression.getExpectedResultProgression() + "'.");
         System.out.println("Let's try again, " + gamer + "!");
     }
 }
