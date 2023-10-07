@@ -1,18 +1,29 @@
 ИГРЫ РАЗУМА  
 1. "Проверка на чётность":  
-   https://asciinema.org/connect/a620848f-f76e-46d7-afca-8c8e53aaf4c4
+   https://asciinema.org/a/QEGycBnTR2cMllU6cstMqoc4f
+   [![asciicast](https://asciinema.org/a/QEGycBnTR2cMllU6cstMqoc4f.svg)](https://asciinema.org/a/QEGycBnTR2cMllU6cstMqoc4f)
 
-2. "Калькулятор":  
+
+3. "Калькулятор":  
    https://asciinema.org/a/kZLtxA0TfEoEk044gi197jRuq
+   [![asciicast](https://asciinema.org/a/kZLtxA0TfEoEk044gi197jRuq.svg)](https://asciinema.org/a/kZLtxA0TfEoEk044gi197jRuq)
 
-3. "НОД":  
+
+5. "НОД":  
    https://asciinema.org/a/MW6tWyHqXmDyFYp82OcYnKusC
+   [![asciicast](https://asciinema.org/a/MW6tWyHqXmDyFYp82OcYnKusC.svg)](https://asciinema.org/a/MW6tWyHqXmDyFYp82OcYnKusC)
+   
 
-4. "Арифметическая прогрессия":  
+7. "Арифметическая прогрессия":  
    https://asciinema.org/a/uwiny3Ixmju4H1xEkPNoEMEdr
+   [![asciicast](https://asciinema.org/a/uwiny3Ixmju4H1xEkPNoEMEdr.svg)](https://asciinema.org/a/uwiny3Ixmju4H1xEkPNoEMEdr)
+   
 
-5. "Простое ли число?":  
+9. "Простое ли число?":  
    https://asciinema.org/a/x2LqxSK1jq0bcColcxVLPnA66
+   [![asciicast](https://asciinema.org/a/MW6tWyHqXmDyFYp82OcYnKusC.svg)](https://asciinema.org/a/MW6tWyHqXmDyFYp82OcYnKusC)
+   
+
 
 
 
