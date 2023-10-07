@@ -1,7 +1,7 @@
 ИГРЫ РАЗУМА  
 1. "Проверка на чётность":  
-   https://asciinema.org/connect/a620848f-f76e-46d7-afca-8c8e53aaf4c4
-   [![asciicast](https://asciinema.org/a/Bh2TXmtBijXQ43NBsamHmFPxm.svg)](https://asciinema.org/a/Bh2TXmtBijXQ43NBsamHmFPxm)
+   https://asciinema.org/a/QEGycBnTR2cMllU6cstMqoc4f
+   [![asciicast](https://asciinema.org/a/QEGycBnTR2cMllU6cstMqoc4f.svg)](https://asciinema.org/a/QEGycBnTR2cMllU6cstMqoc4f)
 
 
 3. "Калькулятор":  
