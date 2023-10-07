@@ -10,6 +10,48 @@ import hexlet.code.games.Progression;
 
 public class Engine {
 
+    public static void iterationOfGameEven() {
+
+        Even.greetGameEven();
+
+        int win = 0;
+        int defeat = 0;
+
+        while (win < Even.MAX_WIN) {
+
+            if (defeat > 0) {
+                break;
+            } else {
+
+                Even.questionGameEven();
+
+                if (Even.getAnswerEven().equals("yes")) {
+                    if (Even.randomNumberInGameEven % 2 == 0) {
+                        Even.gameWin();
+                        win++;
+                    } else {
+                        Even.gameOverAnswerYes();
+                        defeat++;
+                    }
+                } else if (Even.getAnswerEven().equals("no")) {
+                    if (Even.randomNumberInGameEven % 2 != 0) {
+                        Even.gameWin();
+                        win++;
+                    } else {
+                        Even.gameOverAnswerNo();
+                        defeat++;
+                    }
+                } else {
+                    Even.gameOverErrorEven();
+                    defeat++;
+                }
+            }
+        }
+        if (win == Even.MAX_WIN) {
+            Even.gameOverCongratulation();
+        }
+    }
+
     public static final int MAX_WIN = 3;
     public static final int FIRST_NUM_PROGRESSION = 6;
     public static final int MIN_NUMBER_OF_INTEGER = 5;
@@ -46,12 +88,6 @@ public class Engine {
 
     public static void gameOverAnswerYes() {
         System.out.println("'yes' is wrong answer ;(. Correct answer was 'no'.");
-        System.out.println("Let's try again, " + gamer + "!");
-    }
-
-    public static void gameOverErrorEven() {
-        System.out.println("'" + Even.getAnswerEven() + "'" + " is wrong answer ;(. ");
-        System.out.print("Correct answer was 'yes' or 'no'.");
         System.out.println("Let's try again, " + gamer + "!");
     }
 

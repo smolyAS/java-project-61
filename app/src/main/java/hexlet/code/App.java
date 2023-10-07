@@ -27,7 +27,7 @@ public class App {
 
         switch (item) {
             case "1" -> Cli.newGame();
-            case "2" -> Even.gameEven();
+            case "2" -> Even.playEven();
             case "3" -> Calc.gameCalc();
             case "4" -> GCD.gameGCD();
             case "5" -> Progression.gameProgression();

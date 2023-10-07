@@ -1,64 +1,63 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-
 import java.util.Scanner;
 
 public class Even {
 
+    public static final int MAX_WIN = 3;
+
     private static String answerEven;
+    private static String userName;
+    public static int randomNumberInGameEven;
 
     public static String getAnswerEven() {
         return answerEven;
     }
 
-    public static void gameEven() {
+    public static void playEven() {
+        Engine.iterationOfGameEven();
+    }
+
+    public static void greetGameEven() {
         Scanner scanner = new Scanner(System.in);
 
-        Engine.gameGreet();
-        Engine.nameGamer();
+        System.out.println("Welcome to the Brain Games!");
+        System.out.print("May I have your name? ");
+        userName = scanner.next();
+        System.out.println("Hello, " + userName + "!");
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
+    }
 
-        int win = 0;
-        int defeat = 0;
+    public static void questionGameEven() {
+        Scanner scanner = new Scanner(System.in);
+        randomNumberInGameEven = Engine.randomNumber();
+        System.out.println("Question: " + randomNumberInGameEven);
+        System.out.print("Your answer: ");
+        answerEven = scanner.next();
+    }
 
-        while (win < Engine.MAX_WIN) {
+    public static void gameWin() {
+        System.out.println("Correct!");
+    }
 
-            if (defeat > 0) {
-                break;
-            } else {
+    public static void gameOverCongratulation() {
+        System.out.println("Congratulations, " + userName + "!");
+    }
 
-                int randomNum = Engine.randomNumber();
-                System.out.println("Question: " + randomNum);
+    public static void gameOverAnswerNo() {
+        System.out.println("'no' is wrong answer ;(. Correct answer was 'yes'.");
+        System.out.println("Let's try again, " + userName + "!");
+    }
 
-                System.out.print("Your answer: ");
-                String answerGamer = scanner.next();
-                answerEven = answerGamer;
+    public static void gameOverAnswerYes() {
+        System.out.println("'yes' is wrong answer ;(. Correct answer was 'no'.");
+        System.out.println("Let's try again, " + userName + "!");
+    }
 
-                if (answerGamer.equals("yes")) {
-                    if (randomNum % 2 == 0) {
-                        Engine.gameWin();
-                        win++;
-                    } else {
-                        Engine.gameOverAnswerYes();
-                        defeat++;
-                    }
-                } else if (answerGamer.equals("no")) {
-                    if (randomNum % 2 != 0) {
-                        Engine.gameWin();
-                        win++;
-                    } else {
-                        Engine.gameOverAnswerNo();
-                        defeat++;
-                    }
-                } else {
-                    Engine.gameOverErrorEven();
-                    defeat++;
-                }
-            }
-        }
-        if (win == Engine.MAX_WIN) {
-            Engine.gameOverCongratulation();
-        }
+    public static void gameOverErrorEven() {
+        System.out.print("'" + getAnswerEven() + "'" + " is wrong answer ;(. ");
+        System.out.println("Correct answer was 'yes' or 'no'.");
+        System.out.println("Let's try again, " + userName + "!");
     }
 }
