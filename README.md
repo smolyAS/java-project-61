@@ -2,10 +2,12 @@
 1. "Проверка на чётность":  
    https://asciinema.org/connect/a620848f-f76e-46d7-afca-8c8e53aaf4c4
 
-2. "Калькулятор":  
+
+3. "Калькулятор":  
    https://asciinema.org/a/kZLtxA0TfEoEk044gi197jRuq
 
-3. "НОД":  
+
+4. "НОД":  
    https://asciinema.org/a/MW6tWyHqXmDyFYp82OcYnKusC
    [![asciicast](https://asciinema.org/a/584828.svg)](https://asciinema.org/a/584828)
 
