@@ -10,9 +10,11 @@
 
 4. "Арифметическая прогрессия":  
    https://asciinema.org/a/uwiny3Ixmju4H1xEkPNoEMEdr
+   [![asciicast](https://asciinema.org/a/584828.svg)](https://asciinema.org/a/584828)
 
-5. "Простое ли число?":  
+6. "Простое ли число?":  
    https://asciinema.org/a/x2LqxSK1jq0bcColcxVLPnA66
+
 
 
 
