@@ -1,76 +1,63 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-
 import java.util.Scanner;
 
 public class Calc {
 
+    public static final int MAX_WIN = 3;
+
     private static int answerCalc;
+    private static String userName;
+    private static int expectedResult;
+
     public static int getAnswerCalc() {
         return answerCalc;
     }
-
-    private static int expectedResult;
 
     public static int getExpectedResult() {
         return expectedResult;
     }
 
-    public static int calculateExpression(int number1, int number2, char operator) {
-        int result;
-        if (operator == '+') {
-            result = number1 + number2;
-        } else if (operator == '-') {
-            result = number1 - number2;
-        } else if (operator == '*') {
-            result = number1 * number2;
-        } else {
-            result = 0;
-        }
-        return result;
+    public static void playCalc() {
+
+        Engine.iterationOfGameCalc();
     }
 
-    public static void gameCalc() {
+    public static void greetGameCalc() {
         Scanner scanner = new Scanner(System.in);
 
-        Engine.gameGreet();
-        Engine.nameGamer();
+        System.out.println("Welcome to the Brain Games!");
+        System.out.print("May I have your name? ");
+        userName = scanner.next();
+        System.out.println("Hello, " + userName + "!");
         System.out.println("What is the result of the expression?");
+    }
 
-        int win = 0;
-        int defeat = 0;
+    public static void questionGameCalc() {
+        Scanner scanner = new Scanner(System.in);
 
-        while (win < Engine.MAX_WIN) {
+        int number1 = Engine.randomNumber();
+        int number2 = Engine.randomNumber();
+        char operator = Engine.randomOperator();
 
-            if (defeat > 0) {
-                break;
+        expectedResult = Engine.calculateExpression(number1, number2, operator);
+        System.out.println("Question: " + number1 + " " + operator + " " + number2);
+        System.out.print("Your answer: ");
+        answerCalc = scanner.nextInt();
+    }
 
-            } else {
+    public static void gameWin() {
+        System.out.println("Correct!");
+    }
 
-                int number1 = Engine.randomNumber();
-                int number2 = Engine.randomNumber();
-                char operator = Engine.randomOperator();
+    public static void gameOverCongratulation() {
+        System.out.println("Congratulations, " + userName + "!");
+    }
 
-                expectedResult = calculateExpression(number1, number2, operator);
-
-                System.out.println("Question: " + number1 + " " + operator + " " + number2);
-                System.out.print("Your answer: ");
-
-                answerCalc = scanner.nextInt();
-
-                if (answerCalc == expectedResult) {
-                    Engine.gameWin();
-                    win++;
-                } else {
-                    Engine.gameOverErrorCalc();
-                    defeat++;
-                }
-            }
-
-            if (win == Engine.MAX_WIN) {
-                Engine.gameOverCongratulation();
-            }
-        }
+    public static void gameOverErrorCalc() {
+        System.out.print("'" + getAnswerCalc() + "'" + " is wrong answer ;(. ");
+        System.out.println("Correct answer was " + "'" + Calc.getExpectedResult() + "'.");
+        System.out.println("Let's try again, " + userName + "!");
     }
 }

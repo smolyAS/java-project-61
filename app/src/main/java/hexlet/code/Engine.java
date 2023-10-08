@@ -21,6 +21,7 @@ public class Engine {
 
             if (defeat > 0) {
                 break;
+
             } else {
 
                 Even.questionGameEven();
@@ -50,6 +51,61 @@ public class Engine {
         if (win == Even.MAX_WIN) {
             Even.gameOverCongratulation();
         }
+    }
+
+    public static void iterationOfGameCalc() {
+
+        Calc.greetGameCalc();
+
+        int win = 0;
+        int defeat = 0;
+
+        while (win < Calc.MAX_WIN) {
+
+            if (defeat > 0) {
+                break;
+
+            } else {
+
+                Calc.questionGameCalc();
+
+                if (Calc.getAnswerCalc() == Calc.getExpectedResult()) {
+                    Calc.gameWin();
+                    win++;
+                } else {
+                    Calc.gameOverErrorCalc();
+                    defeat++;
+                }
+            }
+
+            if (win == Calc.MAX_WIN) {
+                Calc.gameOverCongratulation();
+            }
+        }
+    }
+
+    public static int randomNumber() {
+        return (int) (Math.random() * MAX_RANDOM);
+    }
+
+    public static char randomOperator() {
+        char[] operators = {'+', '-', '*'};
+        int randomIndex = (int) (Math.random() * operators.length);
+        return operators[randomIndex];
+    }
+
+    public static int calculateExpression(int number1, int number2, char operator) {
+        int result;
+        if (operator == '+') {
+            result = number1 + number2;
+        } else if (operator == '-') {
+            result = number1 - number2;
+        } else if (operator == '*') {
+            result = number1 * number2;
+        } else {
+            result = 0;
+        }
+        return result;
     }
 
     public static final int MAX_WIN = 3;
@@ -95,22 +151,6 @@ public class Engine {
         System.out.println("'" + Prime.getAnswerPrime() + "'" + " is wrong answer ;(. ");
         System.out.print("Correct answer was 'yes' or 'no'.");
         System.out.println("Let's try again, " + gamer + "!");
-    }
-
-    public static void gameOverErrorCalc() {
-        System.out.println("'" + Calc.getAnswerCalc() + "'" + " is wrong answer ;(. ");
-        System.out.print("Correct answer was " + "'" + Calc.getExpectedResult() + "'.");
-        System.out.println("Let's try again, " + gamer + "!");
-    }
-
-    public static int randomNumber() {
-        return (int) (Math.random() * MAX_RANDOM);
-    }
-
-    public static char randomOperator() {
-        char[] operators = {'+', '-', '*'};
-        int randomIndex = (int) (Math.random() * operators.length);
-        return operators[randomIndex];
     }
 
     public static void gameOverErrorGCD() {
