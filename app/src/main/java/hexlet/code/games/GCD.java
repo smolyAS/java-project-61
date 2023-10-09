@@ -1,69 +1,61 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-
 import java.util.Scanner;
 
 public class GCD {
 
+    public static final int MAX_WIN = 3;
+
+    private static String userName;
     private static int answerGCD;
+    private static int expectedResultGCD;
 
     public static int getAnswerGCD() {
         return answerGCD;
     }
 
-    private static int expectedResultGCD;
-
     public static int getExpectedResultGCD() {
         return expectedResultGCD;
     }
 
-    public static int findGCD(int number1, int number2) {
-        while (number2 != 0) {
-            int temp = number2;
-            number2 = number1 % number2;
-            number1 = temp;
-        }
-        return number1;
+    public static void playGCD() {
+        Engine.iterationOfGameGCD();
     }
-    public static void gameGCD() {
+
+    public static void greetGameGCD() {
         Scanner scanner = new Scanner(System.in);
 
-        Engine.gameGreet();
-        Engine.nameGamer();
+        System.out.println("Welcome to the Brain Games!");
+        System.out.print("May I have your name? ");
+        userName = scanner.next();
+        System.out.println("Hello, " + userName + "!");
         System.out.println("Find the greatest common divisor of given numbers.");
+    }
 
-        int win = 0;
-        int defeat = 0;
+    public static void questionGameGCD() {
+        Scanner scanner = new Scanner(System.in);
 
-        while (win < Engine.MAX_WIN) {
+        int number1 = Engine.randomNumber();
+        int number2 = Engine.randomOperator();
 
-            if (defeat > 0) {
-                break;
+        System.out.println("Question: " + number1 + " " + number2);
+        System.out.print("Your answer: ");
+        answerGCD = scanner.nextInt();
+        expectedResultGCD = Engine.findGCD(number1, number2);
+    }
 
-            } else {
+    public static void gameWin() {
+        System.out.println("Correct!");
+    }
 
-                int number1 = Engine.randomNumber();
-                int number2 = Engine.randomOperator();
+    public static void gameOverCongratulation() {
+        System.out.println("Congratulations, " + userName + "!");
+    }
 
-                System.out.println("Question: " + number1 + " " + number2);
-                System.out.print("Your answer: ");
-
-                answerGCD = scanner.nextInt();
-                expectedResultGCD = findGCD(number1, number2);
-
-                if (answerGCD == expectedResultGCD) {
-                    Engine.gameWin();
-                    win++;
-                } else {
-                    Engine.gameOverErrorGCD();
-                    defeat++;
-                }
-            }
-
-            if (win == Engine.MAX_WIN) {
-                Engine.gameOverCongratulation();
-            }
-        }
+    public static void gameOverErrorGCD() {
+        System.out.print("'" + answerGCD + "'" + " is wrong answer ;(. ");
+        System.out.println("Correct answer was " + "'" + expectedResultGCD + "'.");
+        System.out.println("Let's try again, " + userName + "!");
     }
 }

@@ -10,6 +10,13 @@ import hexlet.code.games.Progression;
 
 public class Engine {
 
+    public static final int MAX_WIN = 3;
+    public static final int FIRST_NUM_PROGRESSION = 6;
+    public static final int MIN_NUMBER_OF_INTEGER = 5;
+    public static final int MAX_RANDOM = 100;
+    public static final int MAX_STEP = 10;
+    public static final int COEFF_STEP = 1;
+
     public static void iterationOfGameEven() {
 
         Even.greetGameEven();
@@ -108,12 +115,49 @@ public class Engine {
         return result;
     }
 
-    public static final int MAX_WIN = 3;
-    public static final int FIRST_NUM_PROGRESSION = 6;
-    public static final int MIN_NUMBER_OF_INTEGER = 5;
-    public static final int MAX_RANDOM = 100;
-    public static final int MAX_STEP = 10;
-    public static final int COEFF_STEP = 1;
+    public static void iterationOfGameGCD() {
+
+        GCD.greetGameGCD();
+
+        int win = 0;
+        int defeat = 0;
+
+        while (win < GCD.MAX_WIN) {
+
+            if (defeat > 0) {
+                break;
+
+            } else {
+
+                GCD.questionGameGCD();
+
+                if (GCD.getAnswerGCD() == GCD.getExpectedResultGCD()) {
+                    GCD.gameWin();
+                    win++;
+                } else {
+                    GCD.gameOverErrorGCD();
+                    defeat++;
+                }
+            }
+
+            if (win == GCD.MAX_WIN) {
+                GCD.gameOverCongratulation();
+            }
+        }
+    }
+
+    public static int findGCD(int number1, int number2) {
+        while (number2 != 0) {
+            int temp = number2;
+            number2 = number1 % number2;
+            number1 = temp;
+        }
+        return number1;
+    }
+
+
+
+
 
     private static String gamer = "";
 
@@ -153,11 +197,6 @@ public class Engine {
         System.out.println("Let's try again, " + gamer + "!");
     }
 
-    public static void gameOverErrorGCD() {
-        System.out.println("'" + GCD.getAnswerGCD() + "'" + " is wrong answer ;(. ");
-        System.out.print("Correct answer was " + "'" + GCD.getExpectedResultGCD() + "'.");
-        System.out.println("Let's try again, " + gamer + "!");
-    }
 
     public static void gameOverErrorProgression() {
         System.out.println("'" + Progression.getAnswerProgression() + "'" + " is wrong answer ;(.");

@@ -29,7 +29,7 @@ public class App {
             case "1" -> Cli.newGame();
             case "2" -> Even.playEven();
             case "3" -> Calc.playCalc();
-            case "4" -> GCD.gameGCD();
+            case "4" -> GCD.playGCD();
             case "5" -> Progression.gameProgression();
             case "6" -> Prime.gamePrime();
             default -> System.out.print("Exit");

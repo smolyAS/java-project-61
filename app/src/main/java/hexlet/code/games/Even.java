@@ -56,7 +56,7 @@ public class Even {
     }
 
     public static void gameOverErrorEven() {
-        System.out.print("'" + getAnswerEven() + "'" + " is wrong answer ;(. ");
+        System.out.print("'" + answerEven + "'" + " is wrong answer ;(. ");
         System.out.println("Correct answer was 'yes' or 'no'.");
         System.out.println("Let's try again, " + userName + "!");
     }

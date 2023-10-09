@@ -20,7 +20,6 @@ public class Calc {
     }
 
     public static void playCalc() {
-
         Engine.iterationOfGameCalc();
     }
 
@@ -56,8 +55,8 @@ public class Calc {
     }
 
     public static void gameOverErrorCalc() {
-        System.out.print("'" + getAnswerCalc() + "'" + " is wrong answer ;(. ");
-        System.out.println("Correct answer was " + "'" + Calc.getExpectedResult() + "'.");
+        System.out.print("'" + answerCalc + "'" + " is wrong answer ;(. ");
+        System.out.println("Correct answer was " + "'" + expectedResult + "'.");
         System.out.println("Let's try again, " + userName + "!");
     }
 }
