@@ -4,7 +4,6 @@ import hexlet.code.Engine;
 import java.util.Scanner;
 
 public class Even {
-
     public static final int MAX_WIN = 3;
 
     private static String answerEven;

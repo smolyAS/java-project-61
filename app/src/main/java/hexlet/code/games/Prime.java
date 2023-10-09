@@ -5,71 +5,62 @@ import hexlet.code.Engine;
 import java.util.Scanner;
 
 public class Prime {
+    public static final int MAX_WIN = 3;
 
+    private static String userName;
     private static String answerPrime;
+//    private static boolean isPrime;
 
     public static String getAnswerPrime() {
         return answerPrime;
     }
 
-    public static void gamePrime() {
+    public static void playPrime() {
+        Engine.iterationOfGamePrime();
+    }
+
+    public static void greetGamePrime() {
         Scanner scanner = new Scanner(System.in);
 
-        Engine.gameGreet();
-        Engine.nameGamer();
+        System.out.println("Welcome to the Brain Games!");
+        System.out.print("May I have your name? ");
+        userName = scanner.next();
+        System.out.println("Hello, " + userName + "!");
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
+    }
 
-        int win = 0;
-        int defeat = 0;
+    public static void questionGamePrime() {
+        Scanner scanner = new Scanner(System.in);
 
-        while (win < Engine.MAX_WIN) {
+        int randomNum = Engine.randomNumber();
+        System.out.println("Question: " + randomNum);
+        System.out.print("Your answer: ");
+        answerPrime = scanner.next();
+    }
 
-            if (defeat > 0) {
-                break;
-            } else {
-                boolean isPrime = true;
-                int randomNum = Engine.randomNumber();
-                System.out.println("Question: " + randomNum);
-                System.out.print("Your answer: ");
-                String answerGamer = scanner.next();
-                answerPrime = answerGamer;
+    public static void gameWin() {
+        System.out.println("Correct!");
+    }
 
-                if (randomNum > 1) {
-                    for (int i = 2; i <= Math.sqrt(randomNum); i++) {
-                        if (randomNum % i == 0) {
-                            isPrime = false;
-                            break;
-                        }
-                    }
-                } else {
-                    isPrime = false;
-                }
+    public static void gameOverCongratulation() {
+        System.out.println("Congratulations, " + userName + "!");
+    }
 
-                if (answerGamer.equals("yes")) {
-                    if (isPrime) {
-                        Engine.gameWin();
-                        win++;
-                    } else {
-                        Engine.gameOverAnswerYes();
-                        defeat++;
-                    }
-                } else if (answerGamer.equals("no")) {
-                    if (!isPrime) {
-                        Engine.gameWin();
-                        win++;
-                    } else {
-                        Engine.gameOverAnswerNo();
-                        defeat++;
-                    }
-                } else {
-                    Engine.gameOverErrorPrime();
-                    defeat++;
-                }
-            }
-        }
-        if (win == Engine.MAX_WIN) {
-            Engine.gameOverCongratulation();
-        }
+    public static void gameOverAnswerNo() {
+        System.out.println("'no' is wrong answer ;(. Correct answer was 'yes'.");
+        System.out.println("Let's try again, " + userName + "!");
+    }
+
+    public static void gameOverAnswerYes() {
+        System.out.println("'yes' is wrong answer ;(. Correct answer was 'no'.");
+        System.out.println("Let's try again, " + userName + "!");
+    }
+
+    public static void gameOverErrorPrime() {
+        System.out.print("'" + answerPrime + "'" + " is wrong answer ;(. ");
+        System.out.println("Correct answer was 'yes' or 'no'.");
+        System.out.println("Let's try again, " + userName + "!");
     }
 }
+
 
