@@ -39,6 +39,7 @@ public class Progression {
     public static void questionGameProgression() {
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
+
         int length = random.nextInt(FIRST_NUM_PROGRESSION) + MIN_NUMBER_OF_INTEGER;
         int hiddenIndex = random.nextInt(length);
         int firstElement = random.nextInt(MAX_RANDOM);

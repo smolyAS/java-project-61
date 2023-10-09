@@ -15,12 +15,22 @@ public class Prime {
         return answerPrime;
     }
 
-    public static int getRandomNumberInGamePrime() {
-        return randomNumberInGamePrime;
-    }
-
     public static void playPrime() {
         Engine.iterationOfGamePrime();
+    }
+
+    public static boolean checkPrimeNumber() {
+        if (randomNumberInGamePrime <= 1) {
+            return false;
+        }
+
+        for (int i = 2; i <= Math.sqrt(randomNumberInGamePrime); i++) {
+            if (randomNumberInGamePrime % i == 0) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     public static void greetGamePrime() {

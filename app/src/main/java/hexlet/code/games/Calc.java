@@ -22,6 +22,26 @@ public class Calc {
         Engine.iterationOfGameCalc();
     }
 
+    public static int calculateExpression(int number1, int number2, char operator) {
+        int result;
+        if (operator == '+') {
+            result = number1 + number2;
+        } else if (operator == '-') {
+            result = number1 - number2;
+        } else if (operator == '*') {
+            result = number1 * number2;
+        } else {
+            result = 0;
+        }
+        return result;
+    }
+
+    public static char randomOperator() {
+        char[] operators = {'+', '-', '*'};
+        int randomIndex = (int) (Math.random() * operators.length);
+        return operators[randomIndex];
+    }
+
     public static void greetGameCalc() {
         Scanner scanner = new Scanner(System.in);
 
@@ -37,9 +57,9 @@ public class Calc {
 
         int number1 = Engine.randomNumber();
         int number2 = Engine.randomNumber();
-        char operator = Engine.randomOperator();
+        char operator = randomOperator();
 
-        expectedResult = Engine.calculateExpression(number1, number2, operator);
+        expectedResult = calculateExpression(number1, number2, operator);
         System.out.println("Question: " + number1 + " " + operator + " " + number2);
         System.out.print("Your answer: ");
         answerCalc = scanner.nextInt();

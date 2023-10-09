@@ -23,6 +23,15 @@ public class GCD {
         Engine.iterationOfGameGCD();
     }
 
+    public static int findGCD(int number1, int number2) {
+        while (number2 != 0) {
+            int temp = number2;
+            number2 = number1 % number2;
+            number1 = temp;
+        }
+        return number1;
+    }
+
     public static void greetGameGCD() {
         Scanner scanner = new Scanner(System.in);
 
@@ -37,12 +46,12 @@ public class GCD {
         Scanner scanner = new Scanner(System.in);
 
         int number1 = Engine.randomNumber();
-        int number2 = Engine.randomOperator();
+        int number2 = Engine.randomNumber();
 
         System.out.println("Question: " + number1 + " " + number2);
         System.out.print("Your answer: ");
         answerGCD = scanner.nextInt();
-        expectedResultGCD = Engine.findGCD(number1, number2);
+        expectedResultGCD = findGCD(number1, number2);
     }
 
     public static void gameWin() {

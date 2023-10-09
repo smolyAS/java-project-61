@@ -7,8 +7,10 @@ import hexlet.code.games.Prime;
 import hexlet.code.games.Progression;
 
 public class Engine {
-
     public static final int MAX_RANDOM = 100;
+    public static int randomNumber() {
+        return (int) (Math.random() * MAX_RANDOM);
+    }
 
     public static void iterationOfGameEven() {
 
@@ -84,30 +86,6 @@ public class Engine {
         }
     }
 
-    public static int randomNumber() {
-        return (int) (Math.random() * MAX_RANDOM);
-    }
-
-    public static char randomOperator() {
-        char[] operators = {'+', '-', '*'};
-        int randomIndex = (int) (Math.random() * operators.length);
-        return operators[randomIndex];
-    }
-
-    public static int calculateExpression(int number1, int number2, char operator) {
-        int result;
-        if (operator == '+') {
-            result = number1 + number2;
-        } else if (operator == '-') {
-            result = number1 - number2;
-        } else if (operator == '*') {
-            result = number1 * number2;
-        } else {
-            result = 0;
-        }
-        return result;
-    }
-
     public static void iterationOfGameGCD() {
 
         GCD.greetGameGCD();
@@ -137,15 +115,6 @@ public class Engine {
                 GCD.gameOverCongratulation();
             }
         }
-    }
-
-    public static int findGCD(int number1, int number2) {
-        while (number2 != 0) {
-            int temp = number2;
-            number2 = number1 % number2;
-            number1 = temp;
-        }
-        return number1;
     }
 
     public static void iterationOfGameProgression() {
@@ -193,7 +162,7 @@ public class Engine {
 
                 Prime.questionGamePrime();
 
-                boolean isPrime = checkPrimeNumber();
+                boolean isPrime = Prime.checkPrimeNumber();
 
                 if (Prime.getAnswerPrime().equals("yes")) {
                     if (isPrime) {
@@ -223,19 +192,4 @@ public class Engine {
             Prime.gameOverCongratulation();
         }
     }
-
-    public static boolean checkPrimeNumber() {
-        if (Prime.getRandomNumberInGamePrime() <= 1) {
-            return false;
-        }
-
-        for (int i = 2; i <= Math.sqrt(Prime.getRandomNumberInGamePrime()); i++) {
-            if (Prime.getRandomNumberInGamePrime() % i == 0) {
-                return false;
-            }
-        }
-
-        return true;
-    }
-
 }
