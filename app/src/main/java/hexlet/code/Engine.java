@@ -1,7 +1,5 @@
 package hexlet.code;
 
-import java.util.Scanner;
-
 import hexlet.code.games.Calc;
 import hexlet.code.games.Even;
 import hexlet.code.games.GCD;
@@ -10,12 +8,7 @@ import hexlet.code.games.Progression;
 
 public class Engine {
 
-    public static final int MAX_WIN = 3;
-    public static final int FIRST_NUM_PROGRESSION = 6;
-    public static final int MIN_NUMBER_OF_INTEGER = 5;
     public static final int MAX_RANDOM = 100;
-    public static final int MAX_STEP = 10;
-    public static final int COEFF_STEP = 1;
 
     public static void iterationOfGameEven() {
 
@@ -155,52 +148,94 @@ public class Engine {
         return number1;
     }
 
+    public static void iterationOfGameProgression() {
 
+        Progression.greetGameProgression();
 
+        int win = 0;
+        int defeat = 0;
 
+        while (win < Progression.MAX_WIN) {
 
-    private static String gamer = "";
+            if (defeat > 0) {
+                break;
+            } else {
 
-    public static void gameGreet() {
-        System.out.println("Welcome to the Brain Games!");
-        System.out.print("May I have your name? ");
+                Progression.questionGameProgression();
+
+                if (Progression.getAnswerProgression() == Progression.getExpectedResultProgression()) {
+                    Progression.gameWin();
+                    win++;
+                } else {
+                    Progression.gameOverErrorProgression();
+                    defeat++;
+                }
+            }
+            if (win == Progression.MAX_WIN) {
+                Progression.gameOverCongratulation();
+            }
+        }
     }
 
-    public static void nameGamer() {
-        Scanner scanner = new Scanner(System.in);
-        String userName = scanner.next();
-        System.out.println("Hello, " + userName + "!");
-        gamer = userName;
+    public static void iterationOfGamePrime() {
+
+        Prime.greetGamePrime();
+
+        int win = 0;
+        int defeat = 0;
+
+        while (win < Prime.MAX_WIN) {
+
+            if (defeat > 0) {
+                break;
+
+            } else {
+
+                Prime.questionGamePrime();
+
+                boolean isPrime = checkPrimeNumber();
+
+                if (Prime.getAnswerPrime().equals("yes")) {
+                    if (isPrime) {
+                        Prime.gameWin();
+                        win++;
+                    } else {
+                        Prime.gameOverAnswerYes();
+                        defeat++;
+                    }
+
+                } else if (Prime.getAnswerPrime().equals("no")) {
+
+                    if (!isPrime) {
+                        Prime.gameWin();
+                        win++;
+                    } else {
+                        Prime.gameOverAnswerNo();
+                        defeat++;
+                    }
+                } else {
+                    Prime.gameOverErrorPrime();
+                    defeat++;
+                }
+            }
+        }
+        if (win == Prime.MAX_WIN) {
+            Prime.gameOverCongratulation();
+        }
     }
 
-    public static void gameWin() {
-        System.out.println("Correct!");
+    public static boolean checkPrimeNumber() {
+        if (Prime.randomNum <= 1) {
+            return false;
+        }
+
+        for (int i = 2; i <= Math.sqrt(Prime.randomNum); i++) {
+            if (Prime.randomNum % i == 0) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
-    public static void gameOverCongratulation() {
-        System.out.println("Congratulations, " + gamer + "!");
-    }
-
-    public static void gameOverAnswerNo() {
-        System.out.println("'no' is wrong answer ;(. Correct answer was 'yes'.");
-        System.out.println("Let's try again, " + gamer + "!");
-    }
-
-    public static void gameOverAnswerYes() {
-        System.out.println("'yes' is wrong answer ;(. Correct answer was 'no'.");
-        System.out.println("Let's try again, " + gamer + "!");
-    }
-
-    public static void gameOverErrorPrime() {
-        System.out.println("'" + Prime.getAnswerPrime() + "'" + " is wrong answer ;(. ");
-        System.out.print("Correct answer was 'yes' or 'no'.");
-        System.out.println("Let's try again, " + gamer + "!");
-    }
-
-
-    public static void gameOverErrorProgression() {
-        System.out.println("'" + Progression.getAnswerProgression() + "'" + " is wrong answer ;(.");
-        System.out.print("Correct answer was " + "'" + Progression.getExpectedResultProgression() + "'.");
-        System.out.println("Let's try again, " + gamer + "!");
-    }
 }

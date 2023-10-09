@@ -9,7 +9,7 @@ public class Prime {
 
     private static String userName;
     private static String answerPrime;
-//    private static boolean isPrime;
+    public static int randomNum;
 
     public static String getAnswerPrime() {
         return answerPrime;
@@ -32,7 +32,7 @@ public class Prime {
     public static void questionGamePrime() {
         Scanner scanner = new Scanner(System.in);
 
-        int randomNum = Engine.randomNumber();
+        randomNum = Engine.randomNumber();
         System.out.println("Question: " + randomNum);
         System.out.print("Your answer: ");
         answerPrime = scanner.next();
