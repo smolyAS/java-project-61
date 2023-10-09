@@ -1,7 +1,6 @@
 package hexlet.code;
 
 import java.util.Scanner;
-
 import hexlet.code.games.Calc;
 import hexlet.code.games.Even;
 import hexlet.code.games.GCD;
@@ -11,11 +10,8 @@ import hexlet.code.games.Progression;
 public class Engine {
 
     public static final int MAX_WIN = 3;
-    public static final int FIRST_NUM_PROGRESSION = 6;
-    public static final int MIN_NUMBER_OF_INTEGER = 5;
     public static final int MAX_RANDOM = 100;
     public static final int MAX_STEP = 10;
-    public static final int COEFF_STEP = 1;
 
     public static void iterationOfGameEven() {
 
@@ -155,6 +151,35 @@ public class Engine {
         return number1;
     }
 
+    public static void iterationOfGameProgression() {
+
+        Progression.greetGameProgression();
+
+        int win = 0;
+        int defeat = 0;
+
+        while (win < Progression.MAX_WIN) {
+
+            if (defeat > 0) {
+                break;
+            } else {
+
+                Progression.questionGameProgression();
+
+                if (Progression.getAnswerProgression() == Progression.getExpectedResultProgression()) {
+                    Progression.gameWin();
+                    win++;
+                } else {
+                    Progression.gameOverErrorProgression();
+                    defeat++;
+                }
+            }
+            if (win == Progression.MAX_WIN) {
+                Progression.gameOverCongratulation();
+            }
+        }
+    }
+
 
 
 
@@ -194,13 +219,6 @@ public class Engine {
     public static void gameOverErrorPrime() {
         System.out.println("'" + Prime.getAnswerPrime() + "'" + " is wrong answer ;(. ");
         System.out.print("Correct answer was 'yes' or 'no'.");
-        System.out.println("Let's try again, " + gamer + "!");
-    }
-
-
-    public static void gameOverErrorProgression() {
-        System.out.println("'" + Progression.getAnswerProgression() + "'" + " is wrong answer ;(.");
-        System.out.print("Correct answer was " + "'" + Progression.getExpectedResultProgression() + "'.");
         System.out.println("Let's try again, " + gamer + "!");
     }
 }
