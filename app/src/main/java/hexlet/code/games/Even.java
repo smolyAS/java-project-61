@@ -8,10 +8,14 @@ public class Even {
 
     private static String answerEven;
     private static String userName;
-    public static int randomNumberInGameEven;
+    private static int randomNumberInGameEven;
 
     public static String getAnswerEven() {
         return answerEven;
+    }
+
+    public static int getRandomNumberInGameEven() {
+        return randomNumberInGameEven;
     }
 
     public static void playEven() {

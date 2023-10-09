@@ -27,7 +27,7 @@ public class Engine {
                 Even.questionGameEven();
 
                 if (Even.getAnswerEven().equals("yes")) {
-                    if (Even.randomNumberInGameEven % 2 == 0) {
+                    if (Even.getRandomNumberInGameEven() % 2 == 0) {
                         Even.gameWin();
                         win++;
                     } else {
@@ -35,7 +35,7 @@ public class Engine {
                         defeat++;
                     }
                 } else if (Even.getAnswerEven().equals("no")) {
-                    if (Even.randomNumberInGameEven % 2 != 0) {
+                    if (Even.getRandomNumberInGameEven() % 2 != 0) {
                         Even.gameWin();
                         win++;
                     } else {
@@ -225,12 +225,12 @@ public class Engine {
     }
 
     public static boolean checkPrimeNumber() {
-        if (Prime.randomNum <= 1) {
+        if (Prime.getRandomNumberInGamePrime() <= 1) {
             return false;
         }
 
-        for (int i = 2; i <= Math.sqrt(Prime.randomNum); i++) {
-            if (Prime.randomNum % i == 0) {
+        for (int i = 2; i <= Math.sqrt(Prime.getRandomNumberInGamePrime()); i++) {
+            if (Prime.getRandomNumberInGamePrime() % i == 0) {
                 return false;
             }
         }

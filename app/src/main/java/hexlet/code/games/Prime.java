@@ -9,10 +9,14 @@ public class Prime {
 
     private static String userName;
     private static String answerPrime;
-    public static int randomNum;
+    private static int randomNumberInGamePrime;
 
     public static String getAnswerPrime() {
         return answerPrime;
+    }
+
+    public static int getRandomNumberInGamePrime() {
+        return randomNumberInGamePrime;
     }
 
     public static void playPrime() {
@@ -32,8 +36,8 @@ public class Prime {
     public static void questionGamePrime() {
         Scanner scanner = new Scanner(System.in);
 
-        randomNum = Engine.randomNumber();
-        System.out.println("Question: " + randomNum);
+        randomNumberInGamePrime = Engine.randomNumber();
+        System.out.println("Question: " + randomNumberInGamePrime);
         System.out.print("Your answer: ");
         answerPrime = scanner.next();
     }
