@@ -5,9 +5,7 @@ import java.util.Scanner;
 
 public class GCD {
 
-    public static final int MAX_WIN = 3;
-
-    private static String userName;
+    public static final int MAX_RANDOM = 100;
     private static int answerGCD;
     private static int expectedResultGCD;
 
@@ -23,6 +21,10 @@ public class GCD {
         Engine.iterationOfGameGCD();
     }
 
+    public static int randomNumber() {
+        return (int) (Math.random() * MAX_RANDOM);
+    }
+
     public static int findGCD(int number1, int number2) {
         while (number2 != 0) {
             int temp = number2;
@@ -32,39 +34,23 @@ public class GCD {
         return number1;
     }
 
-    public static void greetGameGCD() {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Welcome to the Brain Games!");
-        System.out.print("May I have your name? ");
-        userName = scanner.next();
-        System.out.println("Hello, " + userName + "!");
+    public static void gameTaskGCD() {
         System.out.println("Find the greatest common divisor of given numbers.");
     }
 
     public static void questionGameGCD() {
+
+        int number1 = randomNumber();
+        int number2 = randomNumber();
+
+        expectedResultGCD = findGCD(number1, number2);
+        System.out.println("Question: " + number1 + " " + number2);
+    }
+
+    public static void answerGameGCD() {
         Scanner scanner = new Scanner(System.in);
 
-        int number1 = Engine.randomNumber();
-        int number2 = Engine.randomNumber();
-
-        System.out.println("Question: " + number1 + " " + number2);
         System.out.print("Your answer: ");
         answerGCD = scanner.nextInt();
-        expectedResultGCD = findGCD(number1, number2);
-    }
-
-    public static void gameWin() {
-        System.out.println("Correct!");
-    }
-
-    public static void gameOverCongratulation() {
-        System.out.println("Congratulations, " + userName + "!");
-    }
-
-    public static void gameOverErrorGCD() {
-        System.out.print("'" + answerGCD + "'" + " is wrong answer ;(. ");
-        System.out.println("Correct answer was " + "'" + expectedResultGCD + "'.");
-        System.out.println("Let's try again, " + userName + "!");
     }
 }

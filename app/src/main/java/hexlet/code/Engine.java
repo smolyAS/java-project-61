@@ -6,20 +6,26 @@ import hexlet.code.games.GCD;
 import hexlet.code.games.Prime;
 import hexlet.code.games.Progression;
 
+import java.util.Scanner;
+
 public class Engine {
-    public static final int MAX_RANDOM = 100;
-    public static int randomNumber() {
-        return (int) (Math.random() * MAX_RANDOM);
-    }
+
+    public static final int MAX_WIN = 3;
+    private static String userName;
+    private static int answerInt;
+    private static String answerStr;
+    private static int expectedResult;
+
 
     public static void iterationOfGameEven() {
 
-        Even.greetGameEven();
+        greetGame();
+        Even.gameTaskEven();
 
         int win = 0;
         int defeat = 0;
 
-        while (win < Even.MAX_WIN) {
+        while (win < MAX_WIN) {
 
             if (defeat > 0) {
                 break;
@@ -27,42 +33,46 @@ public class Engine {
             } else {
 
                 Even.questionGameEven();
+                Even.answerGameEven();
+                int question = Even.getQuestionEven();
+                answerStr = Even.getAnswerEven();
 
-                if (Even.getAnswerEven().equals("yes")) {
-                    if (Even.getRandomNumberInGameEven() % 2 == 0) {
-                        Even.gameWin();
+                if (answerStr.equals("yes")) {
+                    if (question % 2 == 0) {
+                        gameWin();
                         win++;
                     } else {
-                        Even.gameOverAnswerYes();
+                        gameOverAnswerYes();
                         defeat++;
                     }
-                } else if (Even.getAnswerEven().equals("no")) {
-                    if (Even.getRandomNumberInGameEven() % 2 != 0) {
-                        Even.gameWin();
+                } else if (answerStr.equals("no")) {
+                    if (question % 2 != 0) {
+                        gameWin();
                         win++;
                     } else {
-                        Even.gameOverAnswerNo();
+                        gameOverAnswerNo();
                         defeat++;
                     }
                 } else {
-                    Even.gameOverErrorEven();
+                    gameOverErrorStringResult();
                     defeat++;
                 }
             }
         }
-        if (win == Even.MAX_WIN) {
-            Even.gameOverCongratulation();
+        if (win == MAX_WIN) {
+            gameOverCongratulation();
         }
     }
 
     public static void iterationOfGameCalc() {
 
-        Calc.greetGameCalc();
+        greetGame();
+        Calc.gameTaskCalc();
 
         int win = 0;
         int defeat = 0;
 
-        while (win < Calc.MAX_WIN) {
+        while (win < MAX_WIN) {
 
             if (defeat > 0) {
                 break;
@@ -70,30 +80,34 @@ public class Engine {
             } else {
 
                 Calc.questionGameCalc();
+                Calc.answerGameCalc();
+                expectedResult = Calc.getExpectedResultCalc();
+                answerInt = Calc.getAnswerCalc();
 
-                if (Calc.getAnswerCalc() == Calc.getExpectedResult()) {
-                    Calc.gameWin();
+                if (answerInt == expectedResult) {
+                    gameWin();
                     win++;
                 } else {
-                    Calc.gameOverErrorCalc();
+                    gameOverErrorIntResult();
                     defeat++;
                 }
             }
 
-            if (win == Calc.MAX_WIN) {
-                Calc.gameOverCongratulation();
+            if (win == MAX_WIN) {
+                gameOverCongratulation();
             }
         }
     }
 
     public static void iterationOfGameGCD() {
 
-        GCD.greetGameGCD();
+        greetGame();
+        GCD.gameTaskGCD();
 
         int win = 0;
         int defeat = 0;
 
-        while (win < GCD.MAX_WIN) {
+        while (win < MAX_WIN) {
 
             if (defeat > 0) {
                 break;
@@ -101,59 +115,67 @@ public class Engine {
             } else {
 
                 GCD.questionGameGCD();
+                GCD.answerGameGCD();
+                expectedResult = GCD.getExpectedResultGCD();
+                answerInt = GCD.getAnswerGCD();
 
-                if (GCD.getAnswerGCD() == GCD.getExpectedResultGCD()) {
-                    GCD.gameWin();
+                if (answerInt == expectedResult) {
+                    gameWin();
                     win++;
                 } else {
-                    GCD.gameOverErrorGCD();
+                    gameOverErrorIntResult();
                     defeat++;
                 }
             }
 
-            if (win == GCD.MAX_WIN) {
-                GCD.gameOverCongratulation();
+            if (win == MAX_WIN) {
+                gameOverCongratulation();
             }
         }
     }
 
     public static void iterationOfGameProgression() {
 
-        Progression.greetGameProgression();
+        greetGame();
+        Progression.gameTaskProgression();
 
         int win = 0;
         int defeat = 0;
 
-        while (win < Progression.MAX_WIN) {
+        while (win < MAX_WIN) {
 
             if (defeat > 0) {
                 break;
             } else {
 
                 Progression.questionGameProgression();
+                Progression.answerGameProgression();
+                expectedResult = Progression.getExpectedResultProgression();
+                answerInt = Progression.getAnswerProgression();
 
-                if (Progression.getAnswerProgression() == Progression.getExpectedResultProgression()) {
-                    Progression.gameWin();
+                if (answerInt == expectedResult) {
+                    gameWin();
                     win++;
                 } else {
-                    Progression.gameOverErrorProgression();
+                    gameOverErrorIntResult();
                     defeat++;
                 }
             }
-            if (win == Progression.MAX_WIN) {
-                Progression.gameOverCongratulation();
+            if (win == MAX_WIN) {
+                gameOverCongratulation();
             }
         }
     }
 
     public static void iterationOfGamePrime() {
 
-        Prime.greetGamePrime();
+        greetGame();
+        Prime.gameTaskPrime();
 
         int win = 0;
         int defeat = 0;
 
-        while (win < Prime.MAX_WIN) {
+        while (win < MAX_WIN) {
 
             if (defeat > 0) {
                 break;
@@ -161,35 +183,76 @@ public class Engine {
             } else {
 
                 Prime.questionGamePrime();
+                Prime.answerGamePrime();
+                answerStr = Prime.getAnswerPrime();
 
                 boolean isPrime = Prime.checkPrimeNumber();
 
-                if (Prime.getAnswerPrime().equals("yes")) {
+                if (answerStr.equals("yes")) {
                     if (isPrime) {
-                        Prime.gameWin();
+                        gameWin();
                         win++;
                     } else {
-                        Prime.gameOverAnswerYes();
+                        gameOverAnswerYes();
                         defeat++;
                     }
 
-                } else if (Prime.getAnswerPrime().equals("no")) {
+                } else if (answerStr.equals("no")) {
 
                     if (!isPrime) {
-                        Prime.gameWin();
+                        gameWin();
                         win++;
                     } else {
-                        Prime.gameOverAnswerNo();
+                        gameOverAnswerNo();
                         defeat++;
                     }
                 } else {
-                    Prime.gameOverErrorPrime();
+                    gameOverErrorStringResult();
                     defeat++;
                 }
             }
         }
-        if (win == Prime.MAX_WIN) {
-            Prime.gameOverCongratulation();
+        if (win == MAX_WIN) {
+            gameOverCongratulation();
         }
+    }
+
+    public static void greetGame() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Welcome to the Brain Games!");
+        System.out.print("May I have your name? ");
+        userName = scanner.next();
+        System.out.println("Hello, " + userName + "!");
+    }
+
+    public static void gameWin() {
+        System.out.println("Correct!");
+    }
+
+    public static void gameOverCongratulation() {
+        System.out.println("Congratulations, " + userName + "!");
+    }
+
+    public static void gameOverAnswerNo() {
+        System.out.println("'no' is wrong answer ;(. Correct answer was 'yes'.");
+        System.out.println("Let's try again, " + userName + "!");
+    }
+
+    public static void gameOverAnswerYes() {
+        System.out.println("'yes' is wrong answer ;(. Correct answer was 'no'.");
+        System.out.println("Let's try again, " + userName + "!");
+    }
+
+    public static void gameOverErrorStringResult() {
+        System.out.print("'" + answerStr + "'" + " is wrong answer ;(. ");
+        System.out.println("Correct answer was 'yes' or 'no'.");
+        System.out.println("Let's try again, " + userName + "!");
+    }
+
+    public static void gameOverErrorIntResult() {
+        System.out.print("'" + answerInt + "'" + " is wrong answer ;(. ");
+        System.out.println("Correct answer was " + "'" + expectedResult + "'.");
+        System.out.println("Let's try again, " + userName + "!");
     }
 }
