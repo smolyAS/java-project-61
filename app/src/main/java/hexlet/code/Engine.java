@@ -11,58 +11,86 @@ import java.util.Scanner;
 public class Engine {
 
     public static final int MAX_WIN = 3;
+    private static String answer;
     private static String userName;
     private static int answerInt;
     private static String answerStr;
     private static int expectedResult;
 
-
-    public static void iterationOfGameEven() {
-
-        greetGame();
-        Even.gameTaskEven();
+    public static void run(String expectedResult1, String answer1) {
 
         int win = 0;
-        int defeat = 0;
 
         while (win < MAX_WIN) {
 
-            if (defeat > 0) {
+            if (!answer1.equalsIgnoreCase("yes") && !answer1.equalsIgnoreCase("no")) {
+                System.out.print("'" + answer1 + "'" + " is wrong answer ;(. ");
+                System.out.println("Correct answer was 'yes' or 'no'.");
+                System.out.println("Let's try again, " + Cli.getUserName() + "!");
                 break;
+            }
+
+            if (answer1.equalsIgnoreCase(expectedResult1)) {
+                System.out.println("Correct!");
+                win++;
 
             } else {
+                System.out.println(answer1 + " is wrong answer ;(. Correct answer was " + expectedResult1 + ".");
+                System.out.println("Let's try again, " + Cli.getUserName() + "!");
+            }
 
-                Even.questionGameEven();
-                Even.answerGameEven();
-                int question = Even.getQuestionEven();
-                answerStr = Even.getAnswerEven();
-
-                if (answerStr.equals("yes")) {
-                    if (question % 2 == 0) {
-                        gameWin();
-                        win++;
-                    } else {
-                        gameOverAnswerYes();
-                        defeat++;
-                    }
-                } else if (answerStr.equals("no")) {
-                    if (question % 2 != 0) {
-                        gameWin();
-                        win++;
-                    } else {
-                        gameOverAnswerNo();
-                        defeat++;
-                    }
-                } else {
-                    gameOverErrorStringResult();
-                    defeat++;
-                }
+            if (win == MAX_WIN) {
+                System.out.println("Congratulations, " + Cli.getUserName() + "!");
             }
         }
-        if (win == MAX_WIN) {
-            gameOverCongratulation();
-        }
     }
+
+//    public static void iterationOfGameEven() {
+//
+//        greetGame();
+//        Even.gameTaskEven();
+//
+//        int win = 0;
+//        int defeat = 0;
+//
+//        while (win < MAX_WIN) {
+//
+//            if (defeat > 0) {
+//                break;
+//
+//            } else {
+//
+//                Even.questionGameEven();
+//                Even.answerGameEven();
+//                int question = Even.getQuestionEven();
+//                answerStr = Even.getAnswerEven();
+//
+//                if (answerStr.equals("yes")) {
+//                    if (question % 2 == 0) {
+//                        gameWin();
+//                        win++;
+//                    } else {
+//                        gameOverAnswerYes();
+//                        defeat++;
+//                    }
+//                } else if (answerStr.equals("no")) {
+//                    if (question % 2 != 0) {
+//                        gameWin();
+//                        win++;
+//                    } else {
+//                        gameOverAnswerNo();
+//                        defeat++;
+//                    }
+//                } else {
+//                    gameOverErrorStringResult();
+//                    defeat++;
+//                }
+//            }
+//        }
+//        if (win == MAX_WIN) {
+//            gameOverCongratulation();
+//        }
+//    }
 
     public static void iterationOfGameCalc() {
 
