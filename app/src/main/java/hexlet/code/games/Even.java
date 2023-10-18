@@ -3,9 +3,9 @@ package hexlet.code.games;
 import hexlet.code.Cli;
 import hexlet.code.Engine;
 
-import java.util.Scanner;
-
 public class Even {
+
+    public static final int ROUNDS = 3;
     public static final int MAX_RANDOM = 100;
 
     public static void playEven() {
@@ -13,26 +13,26 @@ public class Even {
         Cli.greetingNewGamer();
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
 
-        String expectedResult1;
+        int numberOfQuestions = ROUNDS;
+        String[] questions = new String[numberOfQuestions];
+        String[] expectedAnswers = new String[numberOfQuestions];
 
-        int randomNum = (int) (Math.random() * MAX_RANDOM);
+        for (int i = 0; i < numberOfQuestions; i++) {
+            int randomNum = (int) (Math.random() * MAX_RANDOM);
+            String question = String.valueOf(randomNum);
 
-        String question = String.valueOf(randomNum);
-        System.out.println("Question: " + question);
+            String expectedAnswer;
+            if (randomNum % 2 == 0) {
+                expectedAnswer = "yes";
+            } else {
+                expectedAnswer = "no";
+            }
 
-
-        System.out.print("Your answer: ");
-        Scanner scanner = new Scanner(System.in);
-        String answer1 = scanner.next();
-
-        if (randomNum % 2 == 0) {
-            expectedResult1 = "yes";
-        } else {
-            expectedResult1 = "no";
+            questions[i] = question;
+            expectedAnswers[i] = expectedAnswer;
         }
 
-        Engine.run(expectedResult1, answer1);
-
+        Engine.run(questions, expectedAnswers);
     }
 }
 
