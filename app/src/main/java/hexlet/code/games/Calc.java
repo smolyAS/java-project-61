@@ -1,24 +1,35 @@
 package hexlet.code.games;
 
+import hexlet.code.Cli;
 import hexlet.code.Engine;
-import java.util.Scanner;
 
 public class Calc {
+
+    public static final int ROUNDS = 3;
     public static final int MAX_RANDOM = 100;
 
-    private static int answerCalc;
-    private static int expectedResultCalc;
-
-    public static int getAnswerCalc() {
-        return answerCalc;
-    }
-
-    public static int getExpectedResultCalc() {
-        return expectedResultCalc;
-    }
-
     public static void playCalc() {
-        Engine.iterationOfGameCalc();
+        Cli.greetingNewGamer();
+        System.out.println("What is the result of the expression?");
+
+        int numberOfQuestions = ROUNDS;
+        String[] questions = new String[numberOfQuestions];
+        String[] expectedAnswers = new String[numberOfQuestions];
+
+        for (int i = 0; i < numberOfQuestions; i++) {
+
+            int number1 = randomNumber();
+            int number2 = randomNumber();
+            char operator = randomOperator();
+
+            String question = "Question: " + number1 + " " + operator + " " + number2;
+            String expectedAnswer = String.valueOf(calculateExpression(number1, number2, operator));
+
+            questions[i] = question;
+            expectedAnswers[i] = expectedAnswer;
+        }
+
+        Engine.run(questions, expectedAnswers);
     }
 
     public static int randomNumber() {
@@ -43,26 +54,5 @@ public class Calc {
             result = 0;
         }
         return result;
-    }
-
-    public static void gameTaskCalc() {
-        System.out.println("What is the result of the expression?");
-    }
-
-    public static void questionGameCalc() {
-
-        int number1 = randomNumber();
-        int number2 = randomNumber();
-        char operator = randomOperator();
-
-        expectedResultCalc = calculateExpression(number1, number2, operator);
-        System.out.println("Question: " + number1 + " " + operator + " " + number2);
-    }
-
-    public static void answerGameCalc() {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.print("Your answer: ");
-        answerCalc = scanner.nextInt();
     }
 }

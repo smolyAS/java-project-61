@@ -1,24 +1,34 @@
 package hexlet.code.games;
 
+import hexlet.code.Cli;
 import hexlet.code.Engine;
-import java.util.Scanner;
 
 public class GCD {
 
+    public static final int ROUNDS = 3;
     public static final int MAX_RANDOM = 100;
-    private static int answerGCD;
-    private static int expectedResultGCD;
-
-    public static int getAnswerGCD() {
-        return answerGCD;
-    }
-
-    public static int getExpectedResultGCD() {
-        return expectedResultGCD;
-    }
 
     public static void playGCD() {
-        Engine.iterationOfGameGCD();
+        Cli.greetingNewGamer();
+        System.out.println("Find the greatest common divisor of given numbers.");
+
+        int numberOfQuestions = ROUNDS;
+        String[] questions = new String[numberOfQuestions];
+        String[] expectedAnswers = new String[numberOfQuestions];
+
+        for (int i = 0; i < numberOfQuestions; i++) {
+
+            int number1 = randomNumber();
+            int number2 = randomNumber();
+
+            String question = "Question: " + number1 + " " + number2;
+            String expectedAnswer = String.valueOf(findGCD(number1, number2));
+
+            questions[i] = question;
+            expectedAnswers[i] = expectedAnswer;
+        }
+
+        Engine.run(questions, expectedAnswers);
     }
 
     public static int randomNumber() {
@@ -32,25 +42,5 @@ public class GCD {
             number1 = temp;
         }
         return number1;
-    }
-
-    public static void gameTaskGCD() {
-        System.out.println("Find the greatest common divisor of given numbers.");
-    }
-
-    public static void questionGameGCD() {
-
-        int number1 = randomNumber();
-        int number2 = randomNumber();
-
-        expectedResultGCD = findGCD(number1, number2);
-        System.out.println("Question: " + number1 + " " + number2);
-    }
-
-    public static void answerGameGCD() {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.print("Your answer: ");
-        answerGCD = scanner.nextInt();
     }
 }
