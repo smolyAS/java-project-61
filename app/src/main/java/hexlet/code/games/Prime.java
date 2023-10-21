@@ -35,12 +35,13 @@ public class Prime {
     }
 
     public static String checkPrimeNumber() {
-        if (randomNum <= 1) {
+        int num = randomNum;
+        if (num <= 1) {
             return "no";
         }
 
-        for (int i = 2; i <= Math.sqrt(randomNumber()); i++) {
-            if (randomNum % i == 0) {
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) {
                 return "no";
             }
         }
