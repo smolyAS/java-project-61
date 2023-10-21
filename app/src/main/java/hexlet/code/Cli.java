@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Cli {
 
-    public static String userName;
+    private static String userName;
 
     public static String getUserName() {
         return userName;
