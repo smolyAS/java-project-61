@@ -35,20 +35,21 @@ public class Progression {
             for (int j = 0; j < length; j++) {
                 progression[j] = firstElement + step * j;
             }
+
             int hiddenElement = progression[hiddenIndex];
             progression[hiddenIndex] = -1;
             String expectedAnswer = String.valueOf(hiddenElement);
 
-            String question = "Question: ";
+            StringBuilder question = new StringBuilder("Question: ");
             for (int num : progression) {
                 if (num == -1) {
-                    System.out.print(".. ");
+                    question.append(".. ");
                 } else {
-                    System.out.print(num + " ");
+                    question.append(num).append(" ");
                 }
             }
 
-            questions[i] = question;
+            questions[i] = question.toString();
             expectedAnswers[i] = expectedAnswer;
         }
 

@@ -7,6 +7,7 @@ public class Even {
 
     public static final int ROUNDS = 3;
     public static final int MAX_RANDOM = 100;
+    private static int randomNum;
 
     public static void playEven() {
 
@@ -20,13 +21,7 @@ public class Even {
         for (int i = 0; i < numberOfQuestions; i++) {
 
             String question = "Question: " + randomNumber();
-
-            String expectedAnswer;
-            if (randomNumber() % 2 == 0) {
-                expectedAnswer = "yes";
-            } else {
-                expectedAnswer = "no";
-            }
+            String expectedAnswer = checkEvenNumber();
 
             questions[i] = question;
             expectedAnswers[i] = expectedAnswer;
@@ -36,6 +31,15 @@ public class Even {
     }
 
     public static int randomNumber() {
-        return (int) (Math.random() * MAX_RANDOM);
+        randomNum = (int) (Math.random() * MAX_RANDOM);
+        return randomNum;
+    }
+
+    public static String checkEvenNumber() {
+        if (randomNum % 2 == 0) {
+            return "yes";
+        } else {
+            return "no";
+        }
     }
 }
