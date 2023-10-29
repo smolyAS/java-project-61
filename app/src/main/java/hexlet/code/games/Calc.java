@@ -2,10 +2,12 @@ package hexlet.code.games;
 
 import hexlet.code.Cli;
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 public class Calc {
 
     public static final int ROUNDS = 3;
+    public static final int MIN_RANDOM = 0;
     public static final int MAX_RANDOM = 100;
 
     public static void playCalc() {
@@ -18,8 +20,8 @@ public class Calc {
 
         for (int i = 0; i < numberOfQuestions; i++) {
 
-            int number1 = randomNumber();
-            int number2 = randomNumber();
+            int number1 = Utils.getRandomInt(MIN_RANDOM, MAX_RANDOM);
+            int number2 = Utils.getRandomInt(MIN_RANDOM, MAX_RANDOM);
             char operator = randomOperator();
 
             String question = "Question: " + number1 + " " + operator + " " + number2;
@@ -30,10 +32,6 @@ public class Calc {
         }
 
         Engine.run(questions, expectedAnswers);
-    }
-
-    public static int randomNumber() {
-        return (int) (Math.random() * MAX_RANDOM);
     }
 
     public static char randomOperator() {

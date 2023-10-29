@@ -2,10 +2,12 @@ package hexlet.code.games;
 
 import hexlet.code.Cli;
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 public class GCD {
 
     public static final int ROUNDS = 3;
+    public static final int MIN_RANDOM = 0;
     public static final int MAX_RANDOM = 100;
 
     public static void playGCD() {
@@ -18,8 +20,8 @@ public class GCD {
 
         for (int i = 0; i < numberOfQuestions; i++) {
 
-            int number1 = randomNumber();
-            int number2 = randomNumber();
+            int number1 = Utils.getRandomInt(MIN_RANDOM, MAX_RANDOM);
+            int number2 = Utils.getRandomInt(MIN_RANDOM, MAX_RANDOM);
 
             String question = "Question: " + number1 + " " + number2;
             String expectedAnswer = String.valueOf(findGCD(number1, number2));
@@ -29,10 +31,6 @@ public class GCD {
         }
 
         Engine.run(questions, expectedAnswers);
-    }
-
-    public static int randomNumber() {
-        return (int) (Math.random() * MAX_RANDOM);
     }
 
     public static int findGCD(int number1, int number2) {

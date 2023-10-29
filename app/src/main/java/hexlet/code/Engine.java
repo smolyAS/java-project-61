@@ -27,14 +27,6 @@ public class Engine {
                 System.out.println("Let's try again, " + Cli.getUserName() + "!");
                 break;
             }
-
-//            if (!answer.equalsIgnoreCase("yes") && !answer.equalsIgnoreCase("no")) {
-//                System.out.print("'" + answer + "'" + " is wrong answer ;(. ");
-//                System.out.println("Correct answer was 'yes' or 'no'.");
-//                System.out.println("Let's try again, " + Cli.getUserName() + "!");
-//                break;
-//            }
-
             index++;
         }
         if (win == MAX_WIN) {
