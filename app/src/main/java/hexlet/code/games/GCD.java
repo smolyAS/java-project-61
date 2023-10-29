@@ -6,13 +6,14 @@ import hexlet.code.Utils;
 
 public class GCD {
 
+    public static final String RULES = "Find the greatest common divisor of given numbers.";
     public static final int ROUNDS = 3;
     public static final int MIN_RANDOM = 0;
     public static final int MAX_RANDOM = 100;
 
     public static void playGCD() {
         Cli.greetingNewGamer();
-        System.out.println("Find the greatest common divisor of given numbers.");
+        System.out.println(RULES);
 
         String[][] rounds = new String[ROUNDS][2];
 

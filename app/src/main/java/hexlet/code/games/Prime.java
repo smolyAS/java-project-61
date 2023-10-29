@@ -6,13 +6,14 @@ import hexlet.code.Utils;
 
 public class Prime {
 
+    public static final String RULES = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     public static final int ROUNDS = 3;
     public static final int MIN_RANDOM = 0;
     public static final int MAX_RANDOM = 100;
 
     public static void playPrime() {
         Cli.greetingNewGamer();
-        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
+        System.out.println(RULES);
 
         String[][] rounds = new String[ROUNDS][2];
 

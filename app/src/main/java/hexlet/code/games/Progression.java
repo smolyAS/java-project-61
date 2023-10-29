@@ -6,6 +6,7 @@ import java.util.Random;
 
 public class Progression {
 
+    public static final String RULES = "What number is missing in the progression?";
     public static final int ROUNDS = 3;
     public static final int FIRST_NUM_PROGRESSION = 6;
     public static final int MIN_NUMBER_OF_INTEGER = 5;
@@ -16,7 +17,7 @@ public class Progression {
     public static void playProgression() {
 
         Cli.greetingNewGamer();
-        System.out.println("What number is missing in the progression?");
+        System.out.println(RULES);
 
         String[][] rounds = new String[ROUNDS][2];
 
@@ -25,16 +26,12 @@ public class Progression {
             Random random = new Random();
 
             int length = random.nextInt(FIRST_NUM_PROGRESSION) + MIN_NUMBER_OF_INTEGER;
-            int hiddenIndex = random.nextInt(length);
             int firstElement = random.nextInt(MAX_RANDOM);
             int step = random.nextInt(MAX_STEP) + COEFF_STEP;
+            int hiddenIndex = random.nextInt(length);
 
-            int[] progression = new int[length];
-            for (int j = 0; j < length; j++) {
-                progression[j] = firstElement + step * j;
-            }
-
-            int hiddenElement = progression[hiddenIndex];
+            int[] progression = createProgression(length, firstElement, step);
+            int hiddenElement = createHiddenElement(progression, hiddenIndex);
             progression[hiddenIndex] = -1;
             String expectedAnswer = String.valueOf(hiddenElement);
 
@@ -52,5 +49,17 @@ public class Progression {
         }
 
         Engine.run(rounds);
+    }
+
+    public static int[] createProgression(int length, int firstElement, int step) {
+        int[] progression = new int[length];
+        for (int j = 0; j < length; j++) {
+            progression[j] = firstElement + step * j;
+        }
+        return progression;
+    }
+
+    public static int createHiddenElement(int[] progression, int hiddenIndex) {
+        return progression[hiddenIndex];
     }
 }

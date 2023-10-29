@@ -6,13 +6,14 @@ import hexlet.code.Utils;
 
 public class Calc {
 
+    public static final String RULES = "What is the result of the expression?";
     public static final int ROUNDS = 3;
     public static final int MIN_RANDOM = 0;
     public static final int MAX_RANDOM = 100;
 
     public static void playCalc() {
         Cli.greetingNewGamer();
-        System.out.println("What is the result of the expression?");
+        System.out.println(RULES);
 
         String[][] rounds = new String[ROUNDS][2];
 

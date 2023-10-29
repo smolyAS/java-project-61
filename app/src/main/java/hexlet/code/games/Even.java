@@ -6,13 +6,14 @@ import hexlet.code.Utils;
 
 public class Even {
 
+    public static final String RULES = "Answer 'yes' if the number is even, otherwise answer 'no'.";
     public static final int ROUNDS = 3;
     public static final int MIN_RANDOM = 0;
     public static final int MAX_RANDOM = 100;
 
     public static void playEven() {
         Cli.greetingNewGamer();
-        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
+        System.out.println(RULES);
 
         String[][] rounds = new String[ROUNDS][2];
 
