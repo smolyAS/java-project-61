@@ -14,19 +14,18 @@ public class Prime {
         Cli.greetingNewGamer();
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
 
-        String[] questions = new String[ROUNDS];
-        String[] expectedAnswers = new String[ROUNDS];
+        String[][] rounds = new String[ROUNDS][2];
 
         for (int i = 0; i < ROUNDS; i++) {
             int randomNum = Utils.getRandomInt(MIN_RANDOM, MAX_RANDOM);
             String question = "Question: " + randomNum;
             String expectedAnswer = checkPrimeNumber(randomNum) ? "yes" : "no";
 
-            questions[i] = question;
-            expectedAnswers[i] = expectedAnswer;
+            rounds[i][0] = question;
+            rounds[i][1] = expectedAnswer;
         }
 
-        Engine.run(questions, expectedAnswers);
+        Engine.run(rounds);
     }
 
     public static boolean checkPrimeNumber(int number) {

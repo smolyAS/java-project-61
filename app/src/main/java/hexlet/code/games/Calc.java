@@ -14,11 +14,9 @@ public class Calc {
         Cli.greetingNewGamer();
         System.out.println("What is the result of the expression?");
 
-        int numberOfQuestions = ROUNDS;
-        String[] questions = new String[numberOfQuestions];
-        String[] expectedAnswers = new String[numberOfQuestions];
+        String[][] rounds = new String[ROUNDS][2];
 
-        for (int i = 0; i < numberOfQuestions; i++) {
+        for (int i = 0; i < ROUNDS; i++) {
 
             int number1 = Utils.getRandomInt(MIN_RANDOM, MAX_RANDOM);
             int number2 = Utils.getRandomInt(MIN_RANDOM, MAX_RANDOM);
@@ -27,11 +25,11 @@ public class Calc {
             String question = "Question: " + number1 + " " + operator + " " + number2;
             String expectedAnswer = String.valueOf(calculateExpression(number1, number2, operator));
 
-            questions[i] = question;
-            expectedAnswers[i] = expectedAnswer;
+            rounds[i][0] = question;
+            rounds[i][1] = expectedAnswer;
         }
 
-        Engine.run(questions, expectedAnswers);
+        Engine.run(rounds);
     }
 
     public static char randomOperator() {

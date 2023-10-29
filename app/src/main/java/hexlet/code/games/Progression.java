@@ -18,11 +18,9 @@ public class Progression {
         Cli.greetingNewGamer();
         System.out.println("What number is missing in the progression?");
 
-        int numberOfQuestions = ROUNDS;
-        String[] questions = new String[numberOfQuestions];
-        String[] expectedAnswers = new String[numberOfQuestions];
+        String[][] rounds = new String[ROUNDS][2];
 
-        for (int i = 0; i < numberOfQuestions; i++) {
+        for (int i = 0; i < ROUNDS; i++) {
 
             Random random = new Random();
 
@@ -40,19 +38,19 @@ public class Progression {
             progression[hiddenIndex] = -1;
             String expectedAnswer = String.valueOf(hiddenElement);
 
-            StringBuilder question = new StringBuilder("Question: ");
+            StringBuilder questionBuilder = new StringBuilder("Question: ");
             for (int num : progression) {
                 if (num == -1) {
-                    question.append(".. ");
+                    questionBuilder.append(".. ");
                 } else {
-                    question.append(num).append(" ");
+                    questionBuilder.append(num).append(" ");
                 }
             }
 
-            questions[i] = question.toString();
-            expectedAnswers[i] = expectedAnswer;
+            rounds[i][0] = questionBuilder.toString();
+            rounds[i][1] = expectedAnswer;
         }
 
-        Engine.run(questions, expectedAnswers);
+        Engine.run(rounds);
     }
 }

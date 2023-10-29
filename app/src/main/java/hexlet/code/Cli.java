@@ -17,4 +17,9 @@ public class Cli {
         userName = scanner.next();
         System.out.println("Hello, " + userName + "!");
     }
+
+    public static String askAnswer() {
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextLine();
+    }
 }
